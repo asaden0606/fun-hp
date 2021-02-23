@@ -6,14 +6,19 @@
       <header-component></header-component>
       <nav-component></nav-component>
     </div>
-    <div class="content_root">
+    <div class="menu_content">
       <router-view />
     </div>
+    <game-component></game-component>
   </div>
 </template>
 <style lang='scss'>
 .content_header{
 	background-color: #EEFFEE;	
+}
+
+.menu_content{
+  padding:1em;  
 }
 </style>
 <style lang='scss' src='./css/form.scss'>
