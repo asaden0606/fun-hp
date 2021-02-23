@@ -2,17 +2,23 @@
 </script>
 <template>
   <div>
-    <img
-      id="catButton"
-      src="@/assets/game/cat.png"
-      width="32"
-      @click="onClickCat()"
-    />
+    <div v-if="isPlaying">
+      <div class="rest">
+        {{ restText }}
+      </div>
+    </div>
+    <div v-else>
+      <img id="catButton" src="@/assets/game/cat.png" @click="toggleCat()" />
+    </div>
   </div>
 </template>
 <style>
 #catButton {
   cursor: pointer;
+  width: 32px;
+  position: fixed;
+  bottom: 0em;
+  right: 0em;
 }
 
 #game_src {

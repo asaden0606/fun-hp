@@ -2,7 +2,7 @@ import { Component, Prop, Vue, Provide } from "vue-property-decorator";
 import * as TH from "three";
 import { Vector2 } from "three";
 import $ from "jquery";
-const GAME_TAG = '.menu_content >*:visible'
+const COLLISION_ELEMS = '.menu_content >*:visible'
 
 
 const CAT_IMAGE = require("@/assets/game/cat.png");
@@ -27,20 +27,35 @@ export default class App extends Vue {
     private $cat: JQuery;
     private timer: number;
     private allTexts = new Array<TextInfo>();
-    private $game: JQuery;
-    private $rest: JQuery;
+    private $collisionElems: JQuery;
 
-    onClickCat(){
-        this.start();
+    isPlaying = false;
+    restText: string = null;
+
+    toggleCat() {
+        if (this.isPlaying){
+            this.stop();
+            this.isPlaying = false;
+        }
+        else {
+            this.start();
+            this.isPlaying = true;
+        }
     }
+
+
+    mounted(){
+        
+    }
+
 
     public start(): void {
         if (0 < $('.game_cat').length) {
             return;
         }
 
-        this.$game = $(GAME_TAG);
-        this.$game.find('*').each((_, parent) => {
+        this.$collisionElems = $(COLLISION_ELEMS);
+        this.$collisionElems.find('*').each((_, parent) => {
             let $parent = $(parent);
 
             if ($parent.get(0).tagName.toLowerCase() === "img") {
@@ -89,7 +104,7 @@ export default class App extends Vue {
             }
         });
 
-        this.$catParent = $(`<div class='game_cat'></div>`).appendTo(this.$game);
+        this.$catParent = $(`<div class='game_cat'></div>`).appendTo(this.$collisionElems);
         this.$catParent.offset({ left: mousePosition.x, top: mousePosition.y });
         this.$cat = $(`<img src='${CAT_IMAGE}' width='64' height='64'/>`).appendTo(this.$catParent);
         this.$cat.css('left', this.$cat.width() * -0.5);
@@ -99,7 +114,6 @@ export default class App extends Vue {
             this.action();
         }, INTERVAL);
 
-        this.$rest = $(`<text class='rest'></text>`).appendTo(this.$game);
 
         $('body').addClass('game');
     }
@@ -130,8 +144,6 @@ export default class App extends Vue {
         $('.parent').removeClass('parent');
         $(window).mousemove(null);
         this.allTexts = new Array<TextInfo>();
-
-        this.$rest.remove();
     }
 
     private isCollision(pos1: TH.Vector2, c1: number, pos2: TH.Vector2, c2: number): boolean {
@@ -153,7 +165,7 @@ export default class App extends Vue {
     }
 
     private addNya(pos: TH.Vector2): void {
-        let $c = $(`<text class='nya'>にゃー</text>`).appendTo(this.$game);
+        let $c = $(`<text class='nya'>にゃー</text>`).appendTo(this.$collisionElems);
         $c.offset({
             left: pos.x,
             top: pos.y
@@ -196,10 +208,9 @@ export default class App extends Vue {
         let restSize = this.allTexts.filter((val) => {
             return val.visible === true;
         }).length;
-        let text = restSize === 0 ? "お腹いっぱいにゃー" : `残　${restSize}餌`;
-        this.$rest.text(text);
+        this.restText = restSize === 0 ? "お腹いっぱいにゃー" : `残　${restSize}餌`;
     }
-}    
+}
 
 
 
