@@ -4,8 +4,6 @@ import { Vector2 } from "three";
 import $ from "jquery";
 const COLLISION_ELEMS = '.menu_content >*:visible'
 
-
-const CAT_IMAGE = require("@/assets/game/cat.png");
 const CAT_VECTOR_SIZE = 0.3;
 const INTERVAL = 100;
 const BIGGER = 1;
@@ -24,7 +22,6 @@ interface TextInfo {
 })
 export default class App extends Vue {
     private $catParent: JQuery;
-    private $cat: JQuery;
     private timer: number;
     private allTexts = new Array<TextInfo>();
     private $collisionElems: JQuery;
@@ -32,6 +29,9 @@ export default class App extends Vue {
     mousePosition = new TH.Vector2();
     isPlaying = false;
     restText: string = null;
+
+    catWidth = 64;
+    catHeight = 64;
 
     toggleCat() {
         if (this.isPlaying) {
@@ -52,12 +52,14 @@ export default class App extends Vue {
     }
 
     mounted() {
-        this.$catParent = $(`.game_cat`);
+        
     }
 
 
     public start(): void {
+        this.$catParent = $(`.game_cat_parent`);    
         this.$collisionElems = $(COLLISION_ELEMS);
+        
         this.$collisionElems.find('*').each((_, parent) => {
             let $parent = $(parent);
 
@@ -108,11 +110,7 @@ export default class App extends Vue {
         });
 
 
-        this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });
-        this.$cat = $(`<img src='${CAT_IMAGE}' width='64' height='64'/>`).appendTo(this.$catParent);
-        this.$cat.css('left', this.$cat.width() * -0.5);
-        this.$cat.css('top', this.$cat.height() * -0.5);
-
+        this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });    
         this.timer = <any>setInterval(() => {
             this.action();
         }, INTERVAL);
@@ -125,8 +123,6 @@ export default class App extends Vue {
         clearInterval(this.timer);
         $('body').removeClass('game');
         console.log(this.$catParent);
-        this.$catParent.remove();
-
 
         $('.parent').each((_, parent) => {
             let $parent = $(parent);
@@ -179,6 +175,14 @@ export default class App extends Vue {
     }
 
 
+    get catLeft(){
+        return `${this.catWidth * -0.5}px`;    
+    }
+
+    get catTop(){
+        return `${this.catHeight * -0.5}px`;        
+    }
+
     private action(): void {
         //猫を移動
         let catPos = this.calcCatPosition();
@@ -189,16 +193,14 @@ export default class App extends Vue {
         });
 
         //食べ物と猫の当たり判定
-        let catSize = this.$cat.width() / 2.0;
+        let catSize = this.catWidth / 2.0;
         this.allTexts.filter((val) => {
             return val.visible === true;
         }).forEach((text) => {
             if (this.isCollision(text.textPos, text.radius, catPos, catSize)) {
                 text.elem.css('visibility', 'hidden');
-                this.$cat.width(this.$cat.width() + BIGGER);
-                this.$cat.height(this.$cat.height() + BIGGER);
-                this.$cat.css('left', this.$cat.width() * -0.5);
-                this.$cat.css('top', this.$cat.height() * -0.5);
+                this.catWidth = this.catWidth + BIGGER;
+                this.catHeight = this.catHeight + BIGGER;
                 text.visible = false;
 
                 this.addNya(catPos.add(new TH.Vector2(0, -50)));

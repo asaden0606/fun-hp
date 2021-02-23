@@ -6,8 +6,15 @@
       <div class="rest">
         {{ restText }}
       </div>
-      <div class='game_cat'>
-      </div>        
+      <div class="game_cat_parent">
+        <img
+          class="game_cat"
+          src="@/assets/game/cat.png"
+          :width="catWidth"
+          :height="catHeight"
+          :style="{ left: catLeft, top: catTop }"
+        />
+      </div>
     </div>
     <div v-show="!isPlaying">
       <img id="catButton" src="@/assets/game/cat.png" @click="toggleCat()" />
@@ -31,13 +38,13 @@ body.game {
   cursor: url("~@/assets/game/boll.png"), pointer;
 }
 
-.game_cat {
+.game_cat_parent {
   position: absolute;
   pointer-events: none;
 }
 
-.game_cat img {
-  position: absolute;
+.game_cat {
+  position: relative;
 }
 
 .nya {

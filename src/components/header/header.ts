@@ -29,8 +29,8 @@ export default class App extends Vue {
         for (let i = 0; i < titleText.length; i++) {
             let c = titleText.substring(i, i + 1);
             let $item = $(`<text>${c}</text>`).appendTo($title);
-            $item.css('left',this.getRandom(-500, 500));
-            $item.css('top', this.getRandom(-500, 500));
+            $item.css('left',this.getRandom(-200, 200));
+            $item.css('top', this.getRandom(-200, 200));
             $item.animate({ left: 0, top: 0 }, 2000);
         }
     }
