@@ -3,7 +3,7 @@
 <template>
   <div>
     <div class="header">
-      <img :src="TITLE_PNG" width='100%' height='150px' />
+      <img src="@/assets/title.png" width='80%' height='150px' />
       <div id="title" class="title">あさでんのサイト</div>
     </div>
   </div>
@@ -17,7 +17,7 @@
   text-align: center;
   position: relative;
   top: -80px;
-  margin-bottom: -90px;
+  margin-bottom:-70px;
 }
 
 .title text {
