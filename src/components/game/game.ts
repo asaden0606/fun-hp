@@ -34,7 +34,7 @@ export default class App extends Vue {
     restText: string = null;
 
     toggleCat() {
-        if (this.isPlaying){
+        if (this.isPlaying) {
             this.stop();
             this.isPlaying = false;
         }
@@ -44,23 +44,19 @@ export default class App extends Vue {
         }
     }
 
-    created(){       
+    created() {
         $(window).mousemove((event) => {
             this.mousePosition = new Vector2(event.pageX, event.pageY);
-        });    
-        
+        });
+
     }
 
-    mounted(){
-        
+    mounted() {
+        this.$catParent = $(`.game_cat`);
     }
 
 
     public start(): void {
-        if (0 < $('.game_cat').length) {
-            return;
-        }
-
         this.$collisionElems = $(COLLISION_ELEMS);
         this.$collisionElems.find('*').each((_, parent) => {
             let $parent = $(parent);
@@ -111,7 +107,7 @@ export default class App extends Vue {
             }
         });
 
-        this.$catParent = $(`<div class='game_cat'></div>`).appendTo(this.$collisionElems);
+
         this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });
         this.$cat = $(`<img src='${CAT_IMAGE}' width='64' height='64'/>`).appendTo(this.$catParent);
         this.$cat.css('left', this.$cat.width() * -0.5);
@@ -126,9 +122,6 @@ export default class App extends Vue {
     }
 
     public stop() {
-        if (0 === $('.game_cat').length) {
-            return;
-        }
         clearInterval(this.timer);
         $('body').removeClass('game');
         console.log(this.$catParent);

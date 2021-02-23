@@ -2,12 +2,14 @@
 </script>
 <template>
   <div>
-    <div v-if="isPlaying">
+    <div v-show="isPlaying">
       <div class="rest">
         {{ restText }}
       </div>
+      <div class='game_cat'>
+      </div>        
     </div>
-    <div v-else>
+    <div v-show="!isPlaying">
       <img id="catButton" src="@/assets/game/cat.png" @click="toggleCat()" />
     </div>
   </div>
