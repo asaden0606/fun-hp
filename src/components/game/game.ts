@@ -29,6 +29,7 @@ export default class App extends Vue {
     private allTexts = new Array<TextInfo>();
     private $collisionElems: JQuery;
 
+    mousePosition = new TH.Vector2();
     isPlaying = false;
     restText: string = null;
 
@@ -43,6 +44,12 @@ export default class App extends Vue {
         }
     }
 
+    created(){       
+        $(window).mousemove((event) => {
+            this.mousePosition = new Vector2(event.pageX, event.pageY);
+        });    
+        
+    }
 
     mounted(){
         
@@ -105,7 +112,7 @@ export default class App extends Vue {
         });
 
         this.$catParent = $(`<div class='game_cat'></div>`).appendTo(this.$collisionElems);
-        this.$catParent.offset({ left: mousePosition.x, top: mousePosition.y });
+        this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });
         this.$cat = $(`<img src='${CAT_IMAGE}' width='64' height='64'/>`).appendTo(this.$catParent);
         this.$cat.css('left', this.$cat.width() * -0.5);
         this.$cat.css('top', this.$cat.height() * -0.5);
@@ -154,9 +161,9 @@ export default class App extends Vue {
 
     private calcCatPosition(): TH.Vector2 {
         let catPosition = new TH.Vector2(this.$catParent.position().left, this.$catParent.position().top);
-        let vec = mousePosition.clone().sub(catPosition);
+        let vec = this.mousePosition.clone().sub(catPosition);
         if (vec.length() <= CAT_VECTOR_SIZE * INTERVAL) {
-            return mousePosition.clone();
+            return this.mousePosition.clone();
         }
 
         vec.normalize();
@@ -218,7 +225,4 @@ export default class App extends Vue {
 
 
 
-let mousePosition = new TH.Vector2();
-$(window).mousemove((event) => {
-    mousePosition = new Vector2(event.pageX, event.pageY);
-});
+
