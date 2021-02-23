@@ -2,8 +2,12 @@
 </script>
 <template>
   <div id="app">
-    <router-view/>
+    <header-component></header-component>
+    <nav-component></nav-component>
+    <div class="content_root">
+      <router-view />
+    </div>
   </div>
 </template>
-<style lang="scss">
+<style lang='scss' src='./css/form.scss'>
 </style>
