@@ -9,6 +9,7 @@
   </div>
 </template>
 <style lang='scss'>
+@import "@/css/share";
 .header {
   text-align: center;
 }
@@ -16,15 +17,22 @@
 .title {
   text-align: center;
   position: relative;
-  top: -80px;
-  margin-bottom:-70px;
+  top: -50px;
+  margin-bottom:-60px;
+
+  @include sp($sph){
+    //top:-100px;  
+  }
 }
 
 .title text {
   color: #dddddd;
   text-shadow: 5px 5px 1px #111111;
-  font-size: 400%;
+  font-size:5rem;
   position: relative;
+  @include sp($sph){
+    font-size:3rem;
+  }
 }
 
 .title {
