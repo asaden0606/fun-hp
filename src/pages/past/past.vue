@@ -22,7 +22,7 @@
       以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
     </p>
     <div>
-      <chart-component kind="price" code="101" span="m"></chart-component>
+      <chart-component kind="price" code="201" span="w"></chart-component>
     </div>
   </div>
 </template>
