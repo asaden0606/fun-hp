@@ -1,4 +1,4 @@
-import { Component, Prop, Vue, Provide } from "vue-property-decorator";
+import { Component, Prop, Vue, Provide, Watch } from "vue-property-decorator";
 import * as TH from "three";
 import { Vector2 } from "three";
 import $ from "jquery";
@@ -36,11 +36,9 @@ export default class App extends Vue {
     toggleCat() {
         if (this.isPlaying) {
             this.stop();
-            this.isPlaying = false;
         }
         else {
             this.start();
-            this.isPlaying = true;
         }
     }
 
@@ -51,15 +49,23 @@ export default class App extends Vue {
 
     }
 
+    @Watch("@route")
+    routeChanged() {
+        if (this.isPlaying) {
+            this.stop();
+        }
+    }
+
     mounted() {
-        
+
     }
 
 
     public start(): void {
-        this.$catParent = $(`.game_cat_parent`);    
+        this.isPlaying = true;
+        this.$catParent = $(`.game_cat_parent`);
         this.$collisionElems = $(COLLISION_ELEMS);
-        
+
         this.$collisionElems.find('*').each((_, parent) => {
             let $parent = $(parent);
 
@@ -110,7 +116,7 @@ export default class App extends Vue {
         });
 
 
-        this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });    
+        this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });
         this.timer = <any>setInterval(() => {
             this.action();
         }, INTERVAL);
@@ -120,6 +126,7 @@ export default class App extends Vue {
     }
 
     public stop() {
+        this.isPlaying = false;
         clearInterval(this.timer);
         $('body').removeClass('game');
         console.log(this.$catParent);
@@ -175,12 +182,12 @@ export default class App extends Vue {
     }
 
 
-    get catLeft(){
-        return `${this.catWidth * -0.5}px`;    
+    get catLeft() {
+        return `${this.catWidth * -0.5}px`;
     }
 
-    get catTop(){
-        return `${this.catHeight * -0.5}px`;        
+    get catTop() {
+        return `${this.catHeight * -0.5}px`;
     }
 
     private action(): void {
