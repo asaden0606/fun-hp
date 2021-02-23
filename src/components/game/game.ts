@@ -49,7 +49,7 @@ export default class App extends Vue {
 
     }
 
-    @Watch("@route")
+    @Watch("$route")
     routeChanged() {
         if (this.isPlaying) {
             this.stop();
