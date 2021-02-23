@@ -7,18 +7,35 @@
       <nav-component></nav-component>
     </div>
     <div class="menu_content">
-      <router-view />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </div>
     <game-component></game-component>
   </div>
 </template>
 <style lang='scss'>
-.content_header{
-	background-color: #EEFFEE;	
+.content_header {
+  background-color: #eeffee;
 }
 
-.menu_content{
-  padding:1em;  
+.menu_content {
+  padding: 1em;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+}
+
+.fade-enter-active {
+  transition-delay: 0.25s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>
 <style lang='scss' src='./css/form.scss'>
