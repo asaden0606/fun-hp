@@ -1,0 +1,214 @@
+
+class Keyword
+	Public matchKeyword
+	Public matchRegex
+	Public excludeKeyword
+	Public excludeRegex
+
+	Private Sub Class_Initialize()        
+	End Sub
+
+	Public Default Property Get Constructor(inMatchKeyword,inExcludeKeyword)
+		matchKeyword = inMatchKeyword
+		Set matchRegex = new regexp
+		matchRegex.IgnoreCase = True
+		matchRegex.Pattern = inMatchKeyword
+
+		excludeKeyword = inExcludeKeyword
+		Set excludeRegex = new regexp
+		excludeRegex.IgnoreCase = True
+		excludeRegex.Pattern = inExcludeKeyword
+
+		
+		Set Constructor = Me
+	End Property
+
+
+End Class
+
+
+Const NN = "@@@@@@@@@@@@@@"
+
+
+
+
+Sub log(msg)
+	logger.WriteLine(msg)
+End Sub
+
+Sub warn(msg)
+	logger.WriteLine("[WRN]" & msg)
+	warnCount = warnCount + 1
+End Sub
+
+Sub err(msg)
+	logger.WriteLine("[ERR]" & msg)
+	errCount = errCount + 1
+
+End Sub
+
+Function containsBasicKeywords(value,keywords)
+	For Each key IN keywords
+		if key.matchRegex.Test(value) = True THEN	
+			Set containsBasicKeywords = key	
+			Exit Function
+		End If
+	Next
+	
+	Set containsBasicKeywords = Nothing
+End Function
+
+
+
+
+Function findKeywords(workSheet)
+	Dim keys 
+	Dim items
+	Dim keyRegex
+	Set keyRegex = new regexp
+	keyRegex.IgnoreCase = True
+	keys = KEYWORD_DICTIONARY.Keys
+	items = KEYWORD_DICTIONARY.Items
+	For i = 0 To KEYWORD_DICTIONARY.Count - 1
+		keyRegex.Pattern = keys(i)
+		If keyRegex.Test(workSheet.Name) Then
+			findKeywords = items(i)
+			Exit Function
+		End If
+	Next
+
+	findKeywords = Null
+End Function
+
+
+Sub checkBasicKeyword(workSheet)
+	Dim keywords
+	Dim checked
+	Dim found
+	keywords = findKeywords(workSheet)
+	
+	If IsNull(keywords) Then
+		Exit Sub
+	End If
+
+
+	For Each range In workSheet.UsedRange
+		Set found = containsBasicKeywords(range.Value,keywords)
+		If Not found is Nothing Then		
+			checked = Not (range.Interior.ColorIndex = -4142 And range.Interior.Color = 16777215)
+			isExclude = found.excludeRegex.Test(range.Value) 
+			If checked = True And isExclude = True Then
+				err("塗ってはいけない場所に塗ってます.アドレス" & range.Address & ",キー=" & found.matchKeyword & "除外キー" & found.excludeKeyword)
+			End If
+
+			If checked = False And isExclude = False Then
+				err("塗るべき場所に塗ってません" & range.Address & ",キー=" & found.matchKeyword)
+			End If
+		End If
+	Next
+End Sub
+
+
+Sub checkFont(workSheet)
+	If workSheet.Range("A1").Font.Name <> "ＭＳ ゴシック" THEN
+		err("MSゴシックになっていません")
+	End If
+
+	If workSheet.Range("A1").Font.Size <> 9 THEN
+		err("フォントサイズが9になっていません")
+	End If
+
+	If workSheet.Range("A1").NumberFormatLocal <> "@" THEN
+		err("書式が文字列になっていません")
+	End If
+End Sub
+
+
+Sub checkSection()
+
+
+End Sub
+
+
+Sub Main()
+	Dim filePath
+	Dim workSheet
+	Dim logPath
+
+	filePath = Null
+
+
+	'ファイル選択
+	If WScript.Arguments.Count = 1 Then
+		'引数より取得
+		filePath = WScript.Arguments(0)
+	Else
+		'ファイル選択ダイアログ
+		filePath = Excel.GetOpenFilename("Excel,*.xlsx,Excel(旧),*.xls")
+	End IF
+
+	If FileSystemObject.FileExists(filePath) = False Then
+		MsgBox "Excelファイルが選択されませんでした。"
+	Else
+		logPath = Shell.SpecialFolders("Desktop") & "\エビデンス.log"
+		Set logger = FileSystemObject.OpenTextFile(logPath, 2, True)
+		Excel.WorkBooks.Open filePath
+		Excel.Application.ScreenUpdating = False
+
+
+		'ブック単位でチェック
+		'log("【全般】")
+
+	
+		'シート単位でチェック
+		For Each workSheet In Excel.Sheets
+			logger.WriteLine("【" & workSheet.Name  & "】")
+			workSheet.Visible = True
+			Call checkBasicKeyword(workSheet)
+			Call checkFont(workSheet)
+		Next
+		
+
+		
+		Excel.ActiveWorkBook.Close
+		Excel.Quit
+		
+	End If
+End Sub
+
+
+Dim KEYWORD_DICTIONARY
+Dim COMPILE_KEYWORDS
+Dim TANTAI_KEYWORDS
+COMPILE_KEYWORDS=Array()
+TANTAI_KEYWORDS=Array(_
+	(New Keyword)("RSIZ",NN),_
+	(New Keyword)("PROGRAM START",NN),_
+	(New Keyword)("INCLUDE",NN),_
+	(New Keyword)("STEPLIB","EZTPA")_
+)
+
+
+Set KEYWORD_DICTIONARY = CreateObject("Scripting.Dictionary")
+KEYWORD_DICTIONARY.Add "結合", TANTAI_KEYWORDS
+
+
+Dim logger
+Dim errCount 
+Dim warnCount
+Dim Excel
+Dim FileSystemObject
+Dim Shell
+Set Excel = CreateObject("Excel.Application")
+Set FileSystemObject = CreateObject("Scripting.FileSystemObject")
+Set Shell = WScript.CreateObject("WScript.Shell")
+errCount = 0
+warnCount = 0
+
+Main()
+
+If errCount = 0 and warnCount = 0 Then
+	MsgBox "エラーは出ませんでした"
+Else
+	MsgBox "エラーが出ました。Err件数=" +Cstr(errCount) + ",Warn件数=" + Cstr(warnCount)
+End If	

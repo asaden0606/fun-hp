@@ -1,0 +1,35 @@
+BODY {
+	color: #000000;
+	background-color: #c8ffc9;
+}
+
+.contents {
+margin-top:3em;
+margin-left:1em;
+margin-right:1em;
+}
+
+table {
+        color: #000000;
+	background-color: #FFFFFF;
+}
+
+th {
+        background-color: #cccccc;
+}
+
+td.buy
+{
+        background-color: #FF7361;
+}
+
+
+td.sell
+{
+        background-color: #5B8BA5;
+}
+
+td.wait
+{
+        background-color:#FFFF8D;
+}

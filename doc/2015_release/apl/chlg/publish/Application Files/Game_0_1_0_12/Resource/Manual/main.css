@@ -1,0 +1,22 @@
+BODY {
+	color: #000000;
+	background-color: #c8ffc8;
+}
+
+
+tr.header {	
+	background-color: #FFEEDD;
+}
+
+th {	
+	background-color: #FFEEDD;
+}
+
+
+table
+{
+   border-left: solid 1px #999999;
+   border-bottom: solid 1px #999999;	
+   background-color: #FFFFFF;
+}
+

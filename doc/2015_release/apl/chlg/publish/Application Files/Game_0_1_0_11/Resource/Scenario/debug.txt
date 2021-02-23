@@ -1,0 +1,3 @@
+﻿add_army 1 90
+add_army 2 49
+add_item 5

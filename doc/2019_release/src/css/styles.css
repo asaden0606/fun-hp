@@ -1,0 +1,136 @@
+body
+{
+	background-color: #c8ffc9;	
+}
+
+html {
+ overflow-x:hidden;
+ overflow-y: scroll;
+}
+
+
+#container
+{
+	width: 90%;
+	background-color: #EEFFEE;	
+}
+
+#menu_header span:hover{
+	color: #009ae1;
+	cursor: pointer;
+}
+
+.icon
+{
+	width:50px;
+	height:50px;
+}
+
+.title
+{
+	text-align:center;
+	position:relative;
+	top:-80px;
+	margin-bottom: -90px;
+}
+
+.title text
+{
+	color:#DDDDDD;
+	text-shadow: 5px 5px 1px #111111;
+	font-size:400%;
+	position:relative;
+}
+
+.title
+{
+	display : none;
+}
+
+#catButton
+{
+    position: fixed;
+    bottom:5px;
+	right: 140px;
+	height:50px;
+	width:50px;
+	/*height:100%;*/
+	z-index:2;
+	overflow:auto;
+}
+
+#topButton
+{
+    position: fixed;
+    bottom:5px;
+	right: 80px;
+	height:50px;
+	width:50px;
+	/*height:100%;*/
+	z-index:2;
+	overflow:auto;
+}
+
+
+h2 {
+    font-family: verdana, arial, helvetica, Sans-Serif;
+    border-left: 8px solid rgba(95,193,238,1.0);
+    color: rgba(95,193,238,1.0);
+    padding: .3em;
+	margin-bottom:1em;
+	border-bottom: 1px solid #ccc;
+}
+
+#game_src
+{
+	display : none;
+}
+
+
+body.game
+{
+	cursor:url(/img/game/boll.cur),pointer;
+}
+
+.game_cat
+{
+	position: absolute;
+	pointer-events:none;
+}
+
+.game_cat img
+{
+	position: absolute;
+}
+
+
+.nya
+{
+	position: absolute;
+	color:red;
+	font-weight:bold;
+}
+
+
+
+.rest
+{
+    position: fixed;
+    top:5px;
+	right: 80px;
+	/*height:100%;*/
+	z-index:2;
+	overflow:auto;
+
+	color:#0000DD;
+	font-size:200%;
+	text-shadow: 1px 1px 1px #111111;
+}
+
+#topButton:hover,#catButton:hover
+{
+	/*
+	background-color: #c9c9c9;
+	*/
+	filter: invert(100%);
+}

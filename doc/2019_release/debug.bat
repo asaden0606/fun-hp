@@ -1,0 +1,1 @@
+call node_modules\.bin\webpack-dev-server.cmd  --config webpack.config.debug.js

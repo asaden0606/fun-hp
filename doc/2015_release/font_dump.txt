@@ -1,0 +1,188 @@
+
+Class ListV
+	Private mObjects
+
+	Public Sub Class_Initialize()
+	    Set mObjects = CreateObject("Scripting.Dictionary")
+	End Sub
+
+	Public Function geta(i)
+	    geta = mObjects(i)
+	End Function
+
+	Public Function count()
+	    count = mObjects.count
+	End Function
+
+	Public Sub add(value)
+	    mObjects.add mObjects.Count + 1,value
+	End Sub
+
+	Public Sub addAll(values)
+	    Dim i
+	    For i = 1 To values.count
+	        add (values(i))
+	    Next
+	End Sub
+
+	Public Function gets()
+	    Set gets = mObjects
+	End Function
+
+	Public Sub clear()
+	    Set mObjects = CreateObject("Scripting.Dictionary")
+	End Sub
+End Class
+
+Class DictionaryS
+	Private mObjects
+
+	Public Sub Class_Initialize()
+	    Set mObjects = CreateObject("Scripting.Dictionary")
+	End Sub
+
+	Public Function geta(key)
+	    set geta = mObjects(key)
+	End Function
+
+	Public Function count()
+	    count = mObjects.count
+	End Function
+	
+	Public Function contains(key)
+		contains =  mObjects.Exists(key)
+	End Function	
+
+	Public Sub add(key,value)
+	    Set mObjects(key) = value
+	End Sub
+
+	Public Sub addAll(values)
+	    Dim i
+	    For i = 1 To values.count
+	        add (values(i))
+	    Next
+	End Sub
+
+	Public Function gets()
+	    Set gets = mObjects
+	End Function
+
+	Public Sub clear()
+	    Set mObjects = CreateObject("Scripting.Dictionary")
+	End Sub
+End Class
+
+Sub log(msg)
+	logger.WriteLine(msg)
+End Sub
+
+Sub warn(msg)
+	logger.WriteLine(msg)
+	errCount = errCount + 1
+End Sub
+
+Sub err(msg)
+	logger.WriteLine(msg)
+	errCount = errCount + 1
+End Sub
+
+
+
+
+Function checkFont(workSheet)
+	Dim fontNameDict
+	Set fontNameDict = New DictionaryS
+	
+	Dim R
+	Dim key
+	Dim currentList
+	For Each R In workSheet.UsedRange
+		If R.Value <> "" Then
+			key = R.Font.Name & "_" & R.Font.Size
+		
+			If fontNameDict.contains(key) = False Then
+				fontNameDict.add key,New ListV
+			End If
+			
+			Set currentList = fontNameDict.geta(key)
+			currentList.add R.Address
+		End If
+	Next
+	
+	
+	Dim value
+	Dim str
+	Dim i
+	For Each key In fontNameDict.gets()
+		Set value = fontNameDict.geta(key)
+		str = key
+		str = str + ":Count="
+		str = str + CStr(value.count())
+		str = str + ",Address={"
+		for i = 1 to value.count()
+			str = str + value.geta(i) + ","
+		Next
+		str = str + "}"
+		log(str)
+	Next
+End Function
+
+
+
+Sub Main()
+	Dim filePath
+	Dim workSheet
+	Dim logPath
+
+	filePath = Null
+
+
+	'ファイル選択
+	If WScript.Arguments.Count = 1 Then
+		'引数より取得
+		filePath = WScript.Arguments(0)
+	Else
+		'ファイル選択ダイアログ
+		filePath = Excel.GetOpenFilename("Excel,*.xlsx,Excel_old,*.xls")
+	End IF
+
+	If FileSystemObject.FileExists(filePath) = False Then
+		MsgBox "Excelファイルが選択されませんでした。"
+	Else
+		logPath = Shell.SpecialFolders("Desktop") & "\font_dump.log"
+		Set logger = FileSystemObject.OpenTextFile(logPath, 2, True)
+		Excel.WorkBooks.Open filePath
+		Excel.Application.ScreenUpdating = False
+
+
+		'シート単位でチェック
+		For Each workSheet In Excel.Sheets
+			logger.WriteLine("【" & workSheet.Name  & "】")
+			workSheet.Visible = True
+			Call checkFont(workSheet)
+		Next
+		
+
+		
+		Excel.ActiveWorkBook.Close
+		Excel.Quit
+		
+	End If
+End Sub
+
+
+
+Dim logger
+Dim errCount 
+Dim Excel
+Dim FileSystemObject
+Dim Shell
+Set Excel = CreateObject("Excel.Application")
+Set FileSystemObject = CreateObject("Scripting.FileSystemObject")
+Set Shell = WScript.CreateObject("WScript.Shell")
+errCount = 0
+
+Main()
+	
+MsgBox "処理を終えました"

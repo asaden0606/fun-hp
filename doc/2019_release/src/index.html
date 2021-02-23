@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <title>あさでん</title>
+</head>
+<script src="js/jspack.js"></script>
+
+<body onload="PackMain.menu().load();">
+    <div id='container'>
+        <center>
+            <img src="img/title.png" height="150px" />
+            <div id='title' class='title'>あさでんのサイト</div>
+        </center>
+        <div id='menu_header'>
+            <span id='kiso'>
+                <img src='img/top_kiso.png' class='icon'>
+                <span class='header'>私の強み</span>
+            </span>
+            <span id='mysys'>
+                <img src='img/top_mysys.jpg' class='icon'>
+                <span class='header'>過去の実績</span>
+            </span>
+            <span id='macro'>
+                <img src='img/top_macro.png' class='icon'>
+                <span class='header'>お問い合わせ</span>
+            </span>
+        </div>
+    </div>
+    <div class='menu_content'>
+        <div id='content_kiso'>
+            <h2>最新のWebプログラミングに対応</h2>
+            <p>
+                近年、プログラミング言語の進化は目覚ましのものがあり、その中で最も急激に進化しているのがWebのプログラミング言語でしょう。
+                私はWebの言語の常に最新情報に目を配り、技術の対応を積極的に進めてます。
+                以下は私が扱えるWebの言語の例です。
+            </p>
+            <ul>
+                <li>JavaScript(ES2018)</li>
+                <li>BABEL</li>
+                <li>TypeScript</li>
+            </ul>
+
+            <img src='img/bland/es-1.svg' width=100px>
+            <img src='img/bland/javascript-1.svg' width=100px>
+            <img src='img/bland/typescript.svg' width=100px>
+            <img src='img/bland/webpack-icon.svg' width=100px>
+
+            <p>
+                また、Web以外にも扱える言語として、下記があります。
+            </p>
+            <ul>
+                <li>C/C++</li>
+                <li>C#</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>PHP</li>
+                <li>Perl</li>
+                <li>VB</li>
+                <li>VBS</li>
+                <li>VBA</li>
+            </ul>
+
+            <img src='img/bland/c.svg' width=100px>
+            <img src='img/bland/c-2975.svg' width=100px>
+            <img src='img/bland/microsoft-net.svg' width=100px>
+            <img src='img/bland/java-4.svg' width=100px>
+            <img src='img/bland/python-4.svg' width=100px>
+            <img src='img/bland/php.svg' width=100px>
+            <img src='img/bland/vb.svg' width=100px>
+            <img src='img/bland/vbs.svg' width=100px>
+
+
+            <h2>Linuxが得意</h2>
+            <p>
+                前業務ではLinuxサーバーの構築も行っており、100台以上のインストール及び管理を任されておりました。
+            </p>
+            <p>
+                また、小規模なサイト構築の経験も多々あります。
+                趣味で自宅サーバーも作成しており、本サイトはその自宅サーバーにて運営して配信されております。
+            </p>
+            <img src='img/server.jpg'>
+
+            <h2>豊富な知識に裏付けされる、資格の数</h2>
+            <p>
+                私は実力を証明するためにも、積極的に資格を取得しております。
+                以下私が取得している資格の一覧です。(2019年8月時点)
+            </p>
+            <ul>
+                <li>LPIC 7種(303/302/301/202/201/102/101)</li>
+                <li>情報セキュレイティスペシャリスト</li>
+                <li>OSS DB Silver</li>
+                <li>応用情報技術者</li>
+                <li>基本情報技術者</li>
+                <li>OCJ-P</li>
+                <li>OCJ-WC</li>
+                <li>XML Master</li>
+                <li>UMTP</li>
+                <li>他5資格</li>
+            </ul>
+        </div>
+        <div id='content_mysys' style='display:none'>
+            <h2>実績一覧</h2>
+            <ul>
+                <li>アパレルショッピングのECサイトの構築</li>
+                <li>販売在庫管理システムの作成</li>
+                <li>スクレイピングシステムの作成</li>
+                <li>インジケータ/EAの作成</li>
+            </ul>
+
+            <h2>FX/株のシステムトレードが得意</h2>
+            <p>
+                私は趣味として、株やFXのトレードをしておりますが、そのなかでシステムトレードをよく用いてます。
+                ソフト名をあげますと、株はTradeStationを、FXではMT4です。
+                自作のインジケータやEAも作成してます。
+            </p>
+            <img src='img/mt4.png' width='800px'>
+            <p>
+                また、私は自作のシステムにより持ち株/為替を管理しております。
+                以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
+            </p>
+            <iframe name='chart' frameborder='0' border='0' width='100%' height='700'
+                src='/gui/chart.html?kind=price&code=101&span=m&num=100&avg_mid=f&avg_lng=f'></iframe>
+        </div>
+        <div id='content_macro' style='display:none'>
+            <a href="mailto:sukiyaki075@gmail.com">メール</a></li>
+        </div>
+    </div>
+
+    <img id='catButton' src='img/game/cat.png' width='32'></img>
+    <img id='topButton' src='img/up_vec.png' width='32'></img>
+</body>
+
+</html>

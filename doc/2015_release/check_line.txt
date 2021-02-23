@@ -1,0 +1,208 @@
+
+const xlEdgeTop = 8
+const xlEdgeLeft = 7  
+const xlNone = -4142
+
+Sub log(msg)
+	logger.WriteLine(msg)
+End Sub
+
+Sub warn(msg)
+	logger.WriteLine(msg)
+	errCount = errCount + 1
+End Sub
+
+Sub err(msg)
+	logger.WriteLine(msg)
+	errCount = errCount + 1
+End Sub
+
+
+Sub checkDiffSub(sheet,beginX,endX,beginY,endY,edge)
+	Dim x
+	Dim y
+	Dim old
+	Dim current
+	old = Null
+	for y = beginY to endY
+		for x = beginX to endX
+			current = sheet.Cells(y,x).Borders(edge).LineStyle			
+			If IsNull(old) = False Then
+				If old <> xlNone and current <> xlNone and old <> current Then
+					err("セルのラインが変更されています。アドレス=" & sheet.Cells(y,x).Address)
+					Exit Sub
+				End If
+			End If			
+			old = current
+		Next
+	Next
+
+	
+
+End Sub
+
+
+'色が違う系を調べます
+Sub checkDiff(workSheet)
+	Dim printRow
+	Dim printCol
+ 	if workSheet.PageSetup.PrintArea = "" THEN
+ 		warn("PrintAreaが設定されていません")
+ 		Exit Sub
+ 	End IF
+	
+	With workSheet.Range(workSheet.PageSetup.PrintArea)
+		printRow = .Rows.Row + .Rows.Count - 1
+		printCol = .Columns.Column + .Columns.Count - 1
+	End With
+	
+	Dim x 
+	Dim y	
+	
+	for x = 1 to printCol + 1
+		checkDiffSub workSheet,x,x,1,printRow + 1,xlEdgeLeft
+	Next
+	
+	for y = 1 to printRow + 1
+		CheckDiffSub workSheet,1,printCol + 1,y,y,xlEdgeTop
+	Next
+	
+End Sub
+
+Function checkIndependentCross(sheet,x,y,addX,addY,edge)	
+	if 1 <= x + addX  and 1 <= y + addY Then
+		if sheet.Cells(y + addY,x + addX).Borders(edge).LineStyle <> xlNone Then
+			checkIndependentCross = True
+			Exit Function
+		End If
+	End If
+
+	if 1 <= x - addX  and 1 <= y - addY Then
+		if sheet.Cells(y - addY,x - addX).Borders(edge).LineStyle <> xlNone Then
+			checkIndependentCross = True
+			Exit Function
+		End If
+	End If
+	
+	checkIndependentCross = False
+End Function
+
+Sub checkIndependentSub(title,sheet,beginX,endX,beginY,endY,edge,addX,addY,edgeCross)
+	Dim x
+	Dim y
+	Dim old
+	Dim current
+	old = Null
+		
+	
+	for x = beginX to endX
+		for y = beginY to endY
+			current = sheet.Cells(y,x).Borders(edge).LineStyle			
+
+			if IsNull(old) = False Then										
+				if old = xlNone and current <> xlNone Then
+					if checkIndependentCross(sheet,x,y,addX,addY,edgeCross) = False Then
+						err(title & ":線の開始点が独立しています.アドレス=" & sheet.Cells(y,x).Address)
+					End If
+				End If
+				
+				if old <> xlNone and current = xlNone Then
+					if checkIndependentCross(sheet,x,y,addX,addY,edgeCross) = False Then
+						err(title & ":線の終了点が独立しています.アドレス=" & sheet.Cells(y,x).Address)
+					End If
+				End If
+			End If
+			old = current
+		Next
+	Next
+End Sub
+
+
+Sub checkIndependent(workSheet)
+	Dim printRow
+	Dim printCol
+ 	if workSheet.PageSetup.PrintArea = "" THEN
+ 		warn("PrintAreaが設定されていません")
+ 		Exit Sub
+ 	End IF
+	
+	With workSheet.Range(workSheet.PageSetup.PrintArea)
+		printRow = .Rows.Row + .Rows.Count - 1
+		printCol = .Columns.Column + .Columns.Count - 1
+	End With
+
+	'水平チェック
+	for y = 1 to printRow + 1
+		CheckIndependentSub "水平",workSheet,1,printCol + 1,y,y,xlEdgeTop,0,1,xlEdgeLeft
+	Next
+	
+	'垂直チェック
+	for x = 1 to printCol + 1
+		CheckIndependentSub "垂直",workSheet,x,x,1,printRow + 1,xlEdgeLeft,1,0,xlEdgeTop
+	Next
+End Sub
+
+
+
+
+Sub Main()
+	Dim filePath
+	Dim workSheet
+	Dim logPath
+
+	filePath = Null
+
+
+	'ファイル選択
+	If WScript.Arguments.Count = 1 Then
+		'引数より取得
+		filePath = WScript.Arguments(0)
+	Else
+		'ファイル選択ダイアログ
+		filePath = Excel.GetOpenFilename("Excel,*.xlsx,Excel_old,*.xls")
+	End IF
+
+	If FileSystemObject.FileExists(filePath) = False Then
+		MsgBox "Excelファイルが選択されませんでした。"
+	Else
+		logPath = Shell.SpecialFolders("Desktop") & "\test.log"
+		Set logger = FileSystemObject.OpenTextFile(logPath, 2, True)
+		Excel.WorkBooks.Open filePath
+		Excel.Application.ScreenUpdating = False
+
+
+		'シート単位でチェック
+		For Each workSheet In Excel.Sheets
+			logger.WriteLine("【" & workSheet.Name  & "】")
+			workSheet.Visible = True
+			Call checkDiff(workSheet)	
+			Call checkIndependent(workSheet)	
+		Next
+		
+
+		
+		Excel.ActiveWorkBook.Close
+		Excel.Quit
+		
+	End If
+End Sub
+
+
+
+Dim logger
+Dim errCount 
+Dim Excel
+Dim FileSystemObject
+Dim Shell
+Set Excel = CreateObject("Excel.Application")
+Set FileSystemObject = CreateObject("Scripting.FileSystemObject")
+Set Shell = WScript.CreateObject("WScript.Shell")
+errCount = 0
+
+Main()
+
+If errCount = 0 Then
+	MsgBox "エラーは出ませんでした"
+Else
+	MsgBox "エラーが出ました。エラー件数=" +Cstr(errCount)
+End If	

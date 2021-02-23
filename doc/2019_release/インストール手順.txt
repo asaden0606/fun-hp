@@ -1,0 +1,14 @@
+https://nodejs.org/en/
+=>Recommended For Most Users
+
+https://git-scm.com/downloads
+
+
+powershell(ä«óùé“Åj
+cd C:\workspace\chart
+npm install -g --production windows-build-tools
+npm install webpack webpack-cli -g
+npm install
+./debug.bat
+
+http://localhost:3001/chart.html?kind=price

@@ -1,0 +1,6 @@
+AuthUserFile /home/httpd/scecret/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Secret Area"
+AuthType Basic
+
+require valid-user
