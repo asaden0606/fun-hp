@@ -1,17 +1,15 @@
 <script lang='ts' src='./header.ts'>
 </script>
 <template>
-  <div>
-    <div class="header">
+    <div>
       <img src="@/assets/title.png" width='80%' height='150px' />
       <div id="title" class="title">あさでんのサイト</div>
     </div>
-  </div>
 </template>
 <style lang='scss'>
 @import "@/css/share";
 .header {
-  text-align: center;
+  text-align: center;  
 }
 
 .title {

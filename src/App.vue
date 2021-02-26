@@ -17,6 +17,8 @@
 <style lang='scss'>
 .content_header {
   background-color: #eeffee;
+  overflow-x:hidden;  
+  overflow-y:hidden;
 }
 
 .menu_content {
