@@ -1,7 +1,7 @@
 <script lang='ts' src='./header.ts'>
 </script>
 <template>
-    <div>
+    <div class='header'>
       <img src="@/assets/title.png" width='80%' height='150px' />
       <div id="title" class="title">あさでんのサイト</div>
     </div>
