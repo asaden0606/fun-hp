@@ -35,7 +35,7 @@
 }
 
 body.game {
-  cursor: url("~@/assets/game/boll.png"), pointer;
+  cursor: url("~@/assets/game/boll.png") 4 4, pointer;
 }
 
 .game_cat_parent {

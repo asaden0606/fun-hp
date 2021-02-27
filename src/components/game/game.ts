@@ -21,15 +21,13 @@ interface TextInfo {
     }
 })
 export default class App extends Vue {
-    private $catParent: JQuery;
-    private timer: number;
-    private allTexts = new Array<TextInfo>();
-    private $collisionElems: JQuery;
-
+    $catParent: JQuery;
+    timer: number;
+    allTexts = new Array<TextInfo>();
+    $collisionElems: JQuery;
     mousePosition = new TH.Vector2();
     isPlaying = false;
-    restText: string = null;
-
+    restSize: number = 0;
     catWidth = 64;
     catHeight = 64;
 
@@ -45,6 +43,7 @@ export default class App extends Vue {
     created() {
         $(window).mousemove((event) => {
             this.mousePosition = new Vector2(event.pageX, event.pageY);
+            console.log("mousepos",this.mousePosition.x,this.mousePosition.y)
         });
 
     }
@@ -63,8 +62,13 @@ export default class App extends Vue {
 
     public start(): void {
         this.isPlaying = true;
+        this.catWidth = 64;
+        this.catHeight = 64;
+        this.restSize = 0;
         this.$catParent = $(`.game_cat_parent`);
         this.$collisionElems = $(COLLISION_ELEMS);
+        this.allTexts = new Array<TextInfo>();
+
 
         this.$collisionElems.find('*').each((_, parent) => {
             let $parent = $(parent);
@@ -214,11 +218,15 @@ export default class App extends Vue {
             }
         });
 
-        let restSize = this.allTexts.filter((val) => {
+        this.restSize = this.allTexts.filter((val) => {
             return val.visible === true;
         }).length;
-        this.restText = restSize === 0 ? "お腹いっぱいにゃー" : `残　${restSize}餌`;
     }
+
+    get restText() {
+        return this.restSize === 0 ? "お腹いっぱいにゃー" : `残　${this.restSize}餌`;
+    }
+
 }
 
 
