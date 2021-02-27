@@ -14,10 +14,10 @@
       <li>TypeScript</li>
     </ul>
 
-    <img src="@/assets/bland/es-1.svg" width="100px" />
-    <img src="@/assets/bland/javascript-1.svg" width="100px" />
-    <img src="@/assets/bland/typescript.svg" width="100px" />
-    <img src="@/assets/bland/webpack-icon.svg" width="100px" />
+    <img src="@/assets/front/bland/es-1.svg" width="100px" />
+    <img src="@/assets/front/bland/javascript-1.svg" width="100px" />
+    <img src="@/assets/front/bland/typescript.svg" width="100px" />
+    <img src="@/assets/front/bland/webpack-icon.svg" width="100px" />
 
     <p>また、Web以外にも扱える言語として、下記があります。</p>
     <ul>
@@ -32,14 +32,14 @@
       <li>VBA</li>
     </ul>
 
-    <img src="@/assets/bland/c.svg" width="100px" />
-    <img src="@/assets/bland/c-2975.svg" width="100px" />
-    <img src="@/assets/bland/microsoft-net.svg" width="100px" />
-    <img src="@/assets/bland/java-4.svg" width="100px" />
-    <img src="@/assets/bland/python-4.svg" width="100px" />
-    <img src="@/assets/bland/php.svg" width="100px" />
-    <img src="@/assets/bland/vb.svg" width="100px" />
-    <img src="@/assets/bland/vbs.svg" width="100px" />
+    <img src="@/assets/front/bland/c.svg" width="100px" />
+    <img src="@/assets/front/bland/c-2975.svg" width="100px" />
+    <img src="@/assets/front/bland/microsoft-net.svg" width="100px" />
+    <img src="@/assets/front/bland/java-4.svg" width="100px" />
+    <img src="@/assets/front/bland/python-4.svg" width="100px" />
+    <img src="@/assets/front/bland/php.svg" width="100px" />
+    <img src="@/assets/front/bland/vb.svg" width="100px" />
+    <img src="@/assets/front/bland/vbs.svg" width="100px" />
 
     <h2>Linuxが得意</h2>
     <p>
@@ -49,7 +49,7 @@
       また、小規模なサイト構築の経験も多々あります。
       趣味で自宅サーバーも作成しており、本サイトはその自宅サーバーにて運営して配信されております。
     </p>
-    <img src="@/assets/server.jpg" />
+    <img src="@/assets/front/server.jpg" />
 
     <h2>豊富な知識に裏付けされる、資格の数</h2>
     <p>

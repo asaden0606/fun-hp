@@ -5,6 +5,5 @@ import { Component, Inject, Vue, Watch } from "vue-property-decorator";
     }
 })
 export default class extends Vue {
-    hoge = "aa";
-
+    
 }    
