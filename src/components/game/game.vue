@@ -34,7 +34,7 @@
   display: none;
 }
 
-body.game {
+html.game {
   cursor: url("~@/assets/game/boll.png") 4 4, pointer;
 }
 

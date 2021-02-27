@@ -43,7 +43,6 @@ export default class App extends Vue {
     created() {
         $(window).mousemove((event) => {
             this.mousePosition = new Vector2(event.pageX, event.pageY);
-            console.log("mousepos",this.mousePosition.x,this.mousePosition.y)
         });
 
     }
@@ -120,21 +119,20 @@ export default class App extends Vue {
         });
 
 
+        //console.log("beginCat",this.mousePosition.x,this.mousePosition.y)
         this.$catParent.offset({ left: this.mousePosition.x, top: this.mousePosition.y });
         this.timer = <any>setInterval(() => {
             this.action();
         }, INTERVAL);
 
 
-        $('body').addClass('game');
+        $('html').addClass('game');
     }
 
     public stop() {
         this.isPlaying = false;
         clearInterval(this.timer);
-        $('body').removeClass('game');
-        console.log(this.$catParent);
-
+        $('html').removeClass('game');        
         $('.parent').each((_, parent) => {
             let $parent = $(parent);
             let tagName = $parent.get(0).tagName;
@@ -197,7 +195,6 @@ export default class App extends Vue {
     private action(): void {
         //猫を移動
         let catPos = this.calcCatPosition();
-
         this.$catParent.offset({
             left: catPos.x,
             top: catPos.y,
