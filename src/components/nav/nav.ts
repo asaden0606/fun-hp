@@ -17,17 +17,17 @@ export default class App extends Vue {
     menuItems:MenuItem[] = [
         {
             text:"私の強み",
-            icon:require('@/assets/top_kiso.png'),
+            icon:require('@/assets/nav/kiso.png'),
             link:"/"
         },
         {
             text:"過去の実績",
-            icon:require('@/assets/top_mysys.jpg'),
+            icon:require('@/assets/nav/mysys.jpg'),
             link:"/past"
         },
         {
             text:"お問い合わせ",
-            icon:require('@/assets/top_macro.png'),
+            icon:require('@/assets/nav/macro.png'),
             link:"/contact"
         }        
     ];

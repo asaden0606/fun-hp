@@ -45,6 +45,8 @@ html.game {
 
 .game_cat {
   position: relative;
+  pointer-events: none;
+  opacity:0.8;
 }
 
 .nya {

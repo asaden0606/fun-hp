@@ -147,8 +147,6 @@ export default class App extends Vue {
         });
         $('.parent').children().remove();
         $('.parent').removeClass('parent');
-        $(window).mousemove(null);
-        this.allTexts = new Array<TextInfo>();
     }
 
     private isCollision(pos1: TH.Vector2, c1: number, pos2: TH.Vector2, c2: number): boolean {
