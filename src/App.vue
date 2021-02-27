@@ -15,10 +15,23 @@
   </div>
 </template>
 <style lang='scss'>
+@import "@/css/share";
+  html {
+    background-color: $theme1;
+    overflow-y: scroll;
+    overflow-x:hidden;
+      font-size: 12px;
+    @include sp($sph) {
+      font-size: 16px;
+    }
+  }
+  
+  body {
+    margin: 0em;
+  }
+  
 .content_header {
   background-color: #eeffee;
-  overflow-x:hidden;  
-  overflow-y:hidden;
 }
 
 .menu_content {

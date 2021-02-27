@@ -6,10 +6,10 @@ h1,h2,h3,h4,h5,h6{
   }
   
 h2 {
-    font-family: verdana, arial, helvetica, Sans-Serif;
-    border-left: 8px solid rgba(95,193,238,1.0);
-    color: rgba(95,193,238,1.0);
-    padding: .3em;
+  font-family: verdana, arial, helvetica, Sans-Serif;
+  border-left: 8px solid $theme5;
+  color: $theme5;
+  padding: .3em;
 	margin-bottom:1em;
 	border-bottom: 1px solid #ccc;
 }
@@ -48,23 +48,6 @@ h2 {
     color: $sell_font;
   }
   
-  html {
-    background-color: $theme1;
-    overflow-y: scroll;
-    overflow-x:hidden;
-  }
-  
-  body {
-    margin: 0em;
-  }
-  
-  html {
-    font-size: 12px;
-  
-    @include sp($sph) {
-      font-size: 16px;
-    }
-  }
   
   input,
   select,
