@@ -22,7 +22,7 @@ export default class App extends Vue {
         },
         {
             text:"過去の実績",
-            icon:require('@/assets/nav/mysys.jpg'),
+            icon:require('@/assets/nav/mysys.png'),
             link:"/past"
         },
         {
