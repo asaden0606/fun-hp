@@ -5,7 +5,6 @@ module.exports = {
   lintOnSave: false,
     devServer: {
         port: 3001,
-        disableHostCheck: true,
         proxy: {
           "/api/": {
           	target: "http://funbarisoft.dip.jp",            

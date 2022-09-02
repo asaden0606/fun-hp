@@ -16,7 +16,7 @@
       ソフト名をあげますと、株はTradeStationを、FXではMT4です。
       自作のインジケータやEAも作成してます。
     </p>
-    <img src="@/assets/past/mt4.png" width="800px" />
+    <img src="@/assets/past/mt4.png" style="width:800px" />
     <p>
       また、私は自作のシステムにより持ち株/為替を管理しております。
       以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。

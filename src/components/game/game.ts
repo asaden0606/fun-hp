@@ -1,4 +1,6 @@
-import { Component, Prop, Vue, Provide, Watch } from "vue-property-decorator";
+import { Options, Vue } from "vue-class-component";
+import { Inject, Prop, Watch } from 'vue-property-decorator';
+
 import * as TH from "three";
 import { Vector2 } from "three";
 import $ from "jquery";
@@ -16,7 +18,7 @@ interface TextInfo {
     visible: boolean;
 }
 
-@Component({
+@Options({
     components: {
     }
 })

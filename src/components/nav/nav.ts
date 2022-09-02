@@ -1,4 +1,5 @@
-import { Component, Prop, Vue, Provide } from "vue-property-decorator";
+import { Options, Vue } from "vue-class-component";
+import { Inject, Prop, Watch } from 'vue-property-decorator';
 
 
 
@@ -9,7 +10,7 @@ interface MenuItem{
 }
 
 
-@Component({
+@Options({
     components: {
     }
 })
