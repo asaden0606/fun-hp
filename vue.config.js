@@ -1,4 +1,3 @@
-const path = require('path');
 
 module.exports = {
   publicPath: '/',
@@ -10,15 +9,6 @@ module.exports = {
           	target: "http://funbarisoft.dip.jp",            
             //target: "http://localhost:8080",
           }       
-        }
-    },
-    
-    configureWebpack: {
-        resolve: {
-          alias: {
-            "d3":"d3/build/d3.min.js",
-            "techan": "techan/dist/techan.min.js",
-          }
         }
     }
 };
