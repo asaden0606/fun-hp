@@ -7,14 +7,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
+    "fun-chart": "^0.1.246",
+    "jquery": "^3.5.1",
+    "three": "^0.125.2",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.3",
     "vue-property-decorator": "^10.0.0-rc.3",
-    "core-js": "^3.6.5",
-    "fun-chart": "^0.1.245",
-    "jquery": "^3.5.1",
-    "three": "^0.125.2"
+    "vue-router": "^4.0.3",
+    "vue-final-modal": "^3.4.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~5.0.0",
