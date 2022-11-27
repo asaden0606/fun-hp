@@ -1,4 +1,7 @@
-<script lang='ts' src='./App.ts'>
+<script lang='ts' setup>
+import NavComponent from "@/components/nav.vue";
+import HeaderComponent from "@/components/header.vue";
+import GameComponent from "@/components/game.vue";
 </script>
 <template>
   <div id="app">

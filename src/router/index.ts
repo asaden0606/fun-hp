@@ -2,9 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 
 const routes: Array<RouteRecordRaw> = [
-  {path: '/',component:()=> import('@/pages/front/front.vue')},
-  {path: '/past',component:()=> import('@/pages/past/past.vue')},
-  {path: '/contact',component:()=> import('@/pages/contact/contact.vue')},
+  {path: '/',component:()=> import('@/pages/front.vue')},
+  {path: '/past',component:()=> import('@/pages/past.vue')},
+  {path: '/contact',component:()=> import('@/pages/contact.vue')},
 ]
 
 const router = createRouter({
