@@ -7,8 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "fun-chart": "^0.1.247",
+    "fun-chart": "^0.1.273",
     "jquery": "^3.5.1",
     "three": "^0.125.2",
     "vue": "^3.2.13",
