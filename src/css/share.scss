@@ -1,31 +1,27 @@
+$pch: 600px;
+$sph: 599px;
 
-$pch:600px;  
-$sph:599px;
+$theme1: #d9fad9;
+$theme2: #eeffee;
+$theme3: #974545;
+$theme4: #ffc2b9;
+$theme5: #5eb5dd;
 
+$active: $theme3;
+$buy: $theme4;
+$sell: $theme5;
+$hover: $theme5;
 
-$theme1:#d9fad9;
-$theme2:#eeffee;
-$theme3:#974545;
-$theme4:#ffc2b9;
-$theme5:#5eb5dd;
+$buy_font: red;
+$sell_font: blue;
 
-
-$active:$theme3;
-$buy:$theme4;
-$sell:$theme5;
-$hover:$theme5;
-
-$buy_font:red;
-$sell_font:blue;
-
-
-@mixin pc($size){
-    @media all and (min-width: $size) {
-      @content;
-    }
+@mixin pc($size) {
+  @media all and (min-width: $size) {
+    @content;
   }
-  @mixin sp($size){
-    @media all and (max-width: $size) {
-      @content;
-    }
+}
+@mixin sp($size) {
+  @media all and (max-width: $size) {
+    @content;
   }
+}

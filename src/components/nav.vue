@@ -43,9 +43,10 @@ const MENUS: MenuItem[] = [
   top: 0;
   left: 0;
   width: 100vw;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
   z-index: 1000;
+  height: 50px;
+
 
   .item {
     transition: 1s;
