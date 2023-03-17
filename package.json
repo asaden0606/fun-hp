@@ -7,8 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "fun-chart": "^0.1.274",
     "jquery": "^3.6.1",
+    "scroll-out": "^2.2.12",
     "three": "^0.147.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
