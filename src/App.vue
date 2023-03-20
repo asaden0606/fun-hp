@@ -20,13 +20,11 @@ import GameComponent from "@/components/game.vue";
 
 
 .menu_nav {
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 
-.menu_content {
-  padding: 1em;
-}
+.menu_content {}
 </style>
 <style lang='scss'>
 @import "@/css/share.scss";

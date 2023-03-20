@@ -1,9 +1,9 @@
 <script lang='ts' setup>
+import FrontHeader from "./fronts/FrontHeader.vue";
 import FrontContact from './fronts/FrontContact.vue';
 import FrontPast from './fronts/FrontPast.vue';
 import FrontStrong from './fronts/FrontStrong.vue';
 import ScrollOut from "scroll-out";
-//import * as AOS from "aos";
 
 import { onMounted } from 'vue';
 
@@ -38,8 +38,16 @@ onMounted(() => {
 </script>
 <template>
     <div>
-        <FrontStrong />
-        <FrontPast />
-        <FrontContact />
+        <FrontHeader />
+        <div class="content">
+            <FrontStrong />
+            <FrontPast />
+            <FrontContact />
+        </div>
     </div>
 </template>      
+<style lang="scss" scoped>
+.content {
+    padding: 1em;
+}
+</style>
