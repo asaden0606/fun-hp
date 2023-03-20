@@ -68,7 +68,7 @@ onMounted(() => {
 
     .header {
         position: fixed;
-        top: 0em;
+        top: 80px;
         z-index: 0;
     }
 }
