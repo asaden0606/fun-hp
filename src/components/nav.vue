@@ -7,17 +7,17 @@ interface MenuItem {
 const MENUS: MenuItem[] = [
   {
     text: "私の強み",
-    icon: require("@/assets/nav/kiso.png"),
+    icon: require("@/assets/img/nav/kiso.png"),
     link: "#top",
   },
   {
     text: "過去の実績",
-    icon: require("@/assets/nav/mysys.png"),
+    icon: require("@/assets/img/nav/mysys.png"),
     link: "#past",
   },
   {
     text: "お問い合わせ",
-    icon: require("@/assets/nav/macro.png"),
+    icon: require("@/assets/img/nav/macro.png"),
     link: "#contact",
   },
 ];

@@ -25,7 +25,7 @@ const getRandom = (min: number, max: number) => {
 </script>
 <template>
   <div class="header">
-    <img class="bk" src="@/assets/title.png" />
+    <img class="bk" src="@/assets/img/title.png" />
     <div id="title" class="title">あさでんのポートフォリオ</div>
   </div>
 </template>

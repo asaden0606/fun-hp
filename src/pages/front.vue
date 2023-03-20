@@ -1,5 +1,6 @@
 <script lang='ts' setup>
 import FrontHeader from "./fronts/FrontHeader.vue";
+import FrontTitle from "./fronts/FrontTitle.vue";
 import FrontContact from './fronts/FrontContact.vue';
 import FrontPast from './fronts/FrontPast.vue';
 import FrontStrong from './fronts/FrontStrong.vue';
@@ -37,17 +38,38 @@ onMounted(() => {
 });
 </script>
 <template>
-    <div>
-        <FrontHeader />
+    <div class="root">
         <div class="content">
-            <FrontStrong />
-            <FrontPast />
-            <FrontContact />
+            <FrontTitle />
+            <div class="withbg">
+                <FrontStrong />
+                <FrontPast />
+                <FrontContact />
+            </div>
+        </div>
+        <div class="header">
+            <FrontHeader />
         </div>
     </div>
 </template>      
 <style lang="scss" scoped>
-.content {
-    padding: 1em;
+.root {
+    position: relative;
+
+    .content {
+        position: relative;
+        z-index: 1;
+
+        .withbg {
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    .header {
+        position: fixed;
+        top: 0em;
+        z-index: 0;
+    }
 }
 </style>

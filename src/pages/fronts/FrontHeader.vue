@@ -1,7 +1,7 @@
 <script lang='ts' setup>
 </script>
 <template>
-    <img src="@/assets/front/header.jpg" class="top" />
+    <img src="@/assets/img/front/header.jpg" class="top" />
 </template>
 <style lang="scss" scoped>
 .top {

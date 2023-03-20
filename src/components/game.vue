@@ -210,7 +210,7 @@ watchEffect(() => {
   $(window).mousemove((event) => {
     mousePosition.value = new Vector2(event.pageX, event.pageY);
   });
-});  
+});
 /*
 
 */
@@ -222,12 +222,12 @@ watchEffect(() => {
         {{ restText }}
       </div>
       <div class="game_cat_parent">
-        <img class="game_cat" src="@/assets/game/cat.png" :width="catWidth" :height="catHeight"
+        <img class="game_cat" src="@/assets/img/game/cat.png" :width="catWidth" :height="catHeight"
           :style="{ left: catLeft, top: catTop }" />
       </div>
     </div>
     <div v-show="!isPlaying">
-      <img id="catButton" src="@/assets/game/cat.png" @click="toggleCat()" />
+      <img id="catButton" src="@/assets/img/game/cat.png" @click="toggleCat()" />
     </div>
   </div>
 </template>
@@ -245,7 +245,7 @@ watchEffect(() => {
 }
 
 html.game {
-  cursor: url("~@/assets/game/boll.png") 4 4, pointer;
+  cursor: url("~@/assets/img/game/boll.png") 4 4, pointer;
 }
 
 .game_cat_parent {
