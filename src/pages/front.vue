@@ -1,6 +1,7 @@
 <script lang='ts' setup>
 import FrontHeader from "./fronts/FrontHeader.vue";
 import FrontTitle from "./fronts/FrontTitle.vue";
+import FrontScroll from "./fronts/FrontScroll.vue";
 import FrontContact from './fronts/FrontContact.vue';
 import FrontPast from './fronts/FrontPast.vue';
 import FrontStrong from './fronts/FrontStrong.vue';
@@ -41,6 +42,7 @@ onMounted(() => {
     <div class="root">
         <div class="content">
             <FrontTitle />
+            <FrontScroll />
             <div class="withbg">
                 <FrontStrong />
                 <FrontPast />
@@ -58,10 +60,11 @@ onMounted(() => {
 
     .content {
         position: relative;
+        width: 100vw;
         z-index: 1;
 
         .withbg {
-            padding: 1em;
+            padding: 3em;
             background: rgba(255, 255, 255, 0.9);
         }
     }
