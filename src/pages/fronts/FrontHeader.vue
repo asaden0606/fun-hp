@@ -6,7 +6,7 @@
 <style lang="scss" scoped>
 .top {
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     object-fit: cover;
 }
 </style>

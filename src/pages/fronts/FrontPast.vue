@@ -1,34 +1,44 @@
 <script lang='ts' setup>
 </script>
 <template>
-  <div id="past">
-    <h2>実績一覧</h2>
-    <ul>
-      <li>アパレルショッピングのECサイトの構築</li>
-      <li>販売在庫管理システムの作成</li>
-      <li>スクレイピングシステムの作成</li>
-      <li>インジケータ/EAの作成</li>
-    </ul>
+  <div class="root" id="past">
+    <div class="addpadding">
+      <h2 class="maintitle">過去の実績</h2>
+      <h3 class="subtitle">実績一覧</h3>
+      <ul>
+        <li>アパレルショッピングのECサイトの構築</li>
+        <li>販売在庫管理システムの作成</li>
+        <li>スクレイピングシステムの作成</li>
+        <li>インジケータ/EAの作成</li>
+      </ul>
 
-    <h2>FX/株のシステムトレードが得意</h2>
-    <p>
-      私は趣味として、株やFXのトレードをしておりますが、そのなかでシステムトレードをよく用いてます。
-      ソフト名をあげますと、株はTradeStationを、FXではMT4です。
-      自作のインジケータやEAも作成してます。
-    </p>
-    <img src="@/assets/img/past/mt4.png" class="-js-fade-left mt4" data-scroll="out" />
-    <p>
-      また、私は自作のシステムにより持ち株/為替を管理しております。
-      以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
-    </p>
+      <h3 class="subtitle">FX/株のシステムトレードが得意</h3>
+      <p>
+        私は趣味として、株やFXのトレードをしておりますが、そのなかでシステムトレードをよく用いてます。
+        ソフト名をあげますと、株はTradeStationを、FXではMT4です。
+        自作のインジケータやEAも作成してます。
+      </p>
+      <img src="@/assets/img/past/mt4.png" class="-js-fade-left mt4" data-scroll="out" />
+      <p>
+        また、私は自作のシステムにより持ち株/為替を管理しております。
+        以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
+      </p>
+    </div>
     <div class="-js-fade-left" data-scroll="out">
       <chart-component kind="price" code="201" span="w"></chart-component>
     </div>
   </div>
 </template>
 <style lang='scss' scoped>
-.mt4 {
-  width: 100vw;
-  max-width: 800px;
+.root {
+  .addpadding {
+    padding-left: 3em;
+    padding-right: 3em;
+
+    .mt4 {
+      width: 100vw;
+      max-width: 800px;
+    }
+  }
 }
 </style>

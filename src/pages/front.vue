@@ -36,6 +36,26 @@ onMounted(() => {
         threshold: 0.5,
         once: "true",
     });
+
+
+    $('.anime-title').on('inview', function () {
+        (<any>$(".anime-title")).textillate();
+        $(this).css("opacity", 1);
+    });
+
+    $('.maintitle').on('inview', function () {
+        (<any>$(this)).textillate({
+            in: {
+                effect: 'bounce',
+            }
+        })
+        $(this).css("opacity", 1);
+    })
+
+    $('.subtitle').on('inview', function () {
+        (<any>$(this)).textillate();
+        $(this).css("opacity", 1);
+    })
 });
 </script>
 <template>
@@ -43,7 +63,7 @@ onMounted(() => {
         <div class="content">
             <FrontTitle />
             <FrontScroll />
-            <div class="withbg">
+            <div class="bg">
                 <FrontStrong />
                 <FrontPast />
                 <FrontContact />
@@ -60,18 +80,32 @@ onMounted(() => {
 
     .content {
         position: relative;
-        width: 100vw;
         z-index: 1;
 
-        .withbg {
-            padding: 3em;
-            background: rgba(255, 255, 255, 0.9);
+        .bg {
+            width: 100vw;
+
+            * {
+                padding-top: 150px;
+                padding-bottom: 150px;
+                margin-bottom: 3em;
+                //-webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 100px, 100% 100%, 0% calc(100% - 100px));
+            }
+
+            *:nth-child(odd) {
+                background: rgba(203, 206, 227, 0.903);
+            }
+
+            *:nth-child(even) {
+                background: rgba(206, 227, 203, 0.903);
+            }
         }
     }
 
     .header {
         position: fixed;
-        top: 80px;
+        top: 70px;
         z-index: 0;
     }
 }

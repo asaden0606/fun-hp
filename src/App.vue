@@ -19,11 +19,8 @@ import GameComponent from "@/components/game.vue";
 
 
 .menu_nav {
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
-
-
-.menu_content {}
 </style>
 <style lang='scss'>
 @import "@/css/share.scss";

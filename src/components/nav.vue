@@ -8,7 +8,7 @@ const MENUS: MenuItem[] = [
   {
     text: "私の強み",
     icon: require("@/assets/img/nav/kiso.png"),
-    link: "#top",
+    link: "#strong",
   },
   {
     text: "過去の実績",
@@ -16,9 +16,9 @@ const MENUS: MenuItem[] = [
     link: "#past",
   },
   {
-    text: "お問い合わせ",
+    text: "会社概要",
     icon: require("@/assets/img/nav/macro.png"),
-    link: "#contact",
+    link: "#company",
   },
 ];
 </script>
@@ -39,12 +39,13 @@ const MENUS: MenuItem[] = [
   cursor: pointer;
   display: flex;
   background-color: #eeffeecb;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 1em;
   z-index: 1000;
+  height: 70px;
 
   .item {
     transition: 1s;

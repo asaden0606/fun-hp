@@ -1,8 +1,9 @@
 <script lang='ts' setup>
 </script>
 <template>
-  <div id="strong">
-    <h2>最新のWebプログラミングに対応</h2>
+  <div class="root" id="strong">
+    <h2 class="maintitle">私の強み</h2>
+    <h3 class="subtitle">最新のWebプログラミングに対応</h3>
     <p>
       近年、プログラミング言語の進化は目覚ましのものがあり、その中で最も急激に進化しているのがWebのプログラミング言語でしょう。
       私はWebの言語の常に最新情報に目を配り、技術の対応を積極的に進めてます。
@@ -43,7 +44,7 @@
       <img src="@/assets/img/front/bland/vb.svg" width="100px" />
       <img src="@/assets/img/front/bland/vbs.svg" width="100px" />
     </div>
-    <h2>Linuxが得意</h2>
+    <h3 class="subtitle">Linuxが得意</h3>
     <p>
       前業務ではLinuxサーバーの構築も行っており、100台以上のインストール及び管理を任されておりました。
     </p>
@@ -53,7 +54,7 @@
     </p>
     <img src="@/assets/img/front/server.jpg" data-scroll="out" />
 
-    <h2>豊富な知識に裏付けされる、資格の数</h2>
+    <h3 class="subtitle">豊富な知識に裏付けされる、資格の数</h3>
     <p>
       私は実力を証明するためにも、積極的に資格を取得しております。
       以下私が取得している資格の一覧です。(2019年8月時点)
@@ -72,4 +73,8 @@
     </ul>
   </div>
 </template>
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.root {
+  padding: 3em;
+}
+</style>

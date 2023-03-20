@@ -1,18 +1,13 @@
 <script lang='ts' setup>
-import { onMounted } from 'vue';
-
-onMounted(() => {
-    (<any>$(".anime-title")).textillate();
-})
 </script>
 <template>
     <div class="root">
-        <h1 class="anime-title">地元鹿児島を愛して、帰郷。鹿児島より最新の技術を発信していきます。</h1>
+        <h1 class="anime-title">地元鹿児島を愛して、帰郷。<br />鹿児島より最新の技術を発信していきます。</h1>
     </div>
 </template>
 <style lang="scss" scoped>
 .root {
-    max-width: 500px;
+    max-width: 600px;
     width: 100vw;
     height: calc(100vh - 80px);
     display: flex;
@@ -21,7 +16,8 @@ onMounted(() => {
     margin: auto;
 
     .anime-title {
-        font-size: 3rem;
+        opacity: 0;
+        font-size: 2.5rem;
         font-style: italic;
         line-height: 2em;
         font-weight: bold;
