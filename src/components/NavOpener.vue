@@ -1,16 +1,11 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+const p = defineProps<{
+    isShow: boolean;
+}>()
 
-
-const isShow = ref(false);
-
-const onClick = () => {
-    console.log("onClick");
-    isShow.value = !isShow.value;
-}
 </script>
 <template>
-    <div class="OpenerRoot" :class="{ show: isShow }" @click="onClick()">
+    <div class="OpenerRoot" :class="{ show: p.isShow }">
         <div class="OpenerItem"></div>
         <div class="OpenerItem"></div>
         <div class="OpenerItem"></div>
@@ -26,11 +21,10 @@ const onClick = () => {
     top: 0.5em;
     margin: auto;
     z-index: 1000;
-    mix-blend-mode: difference;
 
     .OpenerItem {
         width: 55px;
-        border-top: solid 8px white;
+        border-top: solid 8px black;
         position: absolute;
         margin: 3px auto;
         transition: all .4s;

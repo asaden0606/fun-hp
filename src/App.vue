@@ -4,9 +4,7 @@ import GameComponent from "@/components/game.vue";
 </script>
 <template>
   <div id="app">
-    <div class="menu_nav">
-      <nav-component></nav-component>
-    </div>
+    <nav-component></nav-component>
     <div class="menu_content">
       <router-view />
     </div>
@@ -16,11 +14,6 @@ import GameComponent from "@/components/game.vue";
 <style lang='scss'>
 @import "@/css/share";
 @import "@/css/form";
-
-
-.menu_nav {
-  margin-bottom: 70px;
-}
 </style>
 <style lang='scss'>
 @import "@/css/share.scss";
