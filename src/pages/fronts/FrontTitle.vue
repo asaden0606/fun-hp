@@ -31,8 +31,12 @@
             0 0.03em 0.03em #FFAB91,
             0 0.03em 0.03em #000,
             0 0.03em 0.03em #FBE9E7;
+    }
 
-        @include sp($sph) {
+    @include sp($sph) {
+        height: 100vh;
+
+        .anime-title {
             font-size: 1.3rem;
         }
     }

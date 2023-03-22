@@ -1,13 +1,13 @@
 <script lang='ts' setup>
-import FrontHeader from "./fronts/FrontHeader.vue";
+import FrontBg from "./fronts/FrontBg.vue";
 import FrontTitle from "./fronts/FrontTitle.vue";
 import FrontScroll from "./fronts/FrontScroll.vue";
 import FrontContact from './fronts/FrontContact.vue';
 import FrontPast from './fronts/FrontPast.vue';
 import FrontStrong from './fronts/FrontStrong.vue';
 import ScrollOut from "scroll-out";
-
 import { onMounted } from 'vue';
+
 
 onMounted(() => {
     ScrollOut({
@@ -63,14 +63,14 @@ onMounted(() => {
         <div class="content">
             <FrontTitle />
             <FrontScroll />
-            <div class="bg">
+            <div class="white">
                 <FrontStrong />
                 <FrontPast />
                 <FrontContact />
             </div>
         </div>
-        <div class="header">
-            <FrontHeader />
+        <div class="bg">
+            <FrontBg />
         </div>
     </div>
 </template>      
@@ -85,7 +85,7 @@ onMounted(() => {
         position: relative;
         z-index: 1;
 
-        .bg {
+        .white {
             width: 100vw;
 
             * {
@@ -106,7 +106,7 @@ onMounted(() => {
         }
     }
 
-    .header {
+    .bg {
         position: fixed;
         top: 70px;
         z-index: 0;

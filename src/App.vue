@@ -8,7 +8,6 @@ import GameComponent from "@/components/game.vue";
     <div class="menu_content">
       <router-view />
     </div>
-    <game-component></game-component>
   </div>
 </template>
 <style lang='scss'>
