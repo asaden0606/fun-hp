@@ -17,14 +17,4 @@ import GameComponent from "@/components/game.vue";
 </style>
 <style lang='scss'>
 @import "@/css/share.scss";
-
-.content_root {
-  @include pc($pch) {
-    margin: 1em;
-  }
-
-  @include sp($sph) {
-    margin: 0.1em;
-  }
-}
 </style>

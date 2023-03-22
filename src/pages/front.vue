@@ -75,6 +75,9 @@ onMounted(() => {
     </div>
 </template>      
 <style lang="scss" scoped>
+@import "@/css/share";
+
+
 .root {
     position: relative;
 
@@ -107,6 +110,10 @@ onMounted(() => {
         position: fixed;
         top: 70px;
         z-index: 0;
+
+        @include sp($sph) {
+            top: 0;
+        }
     }
 }
 </style>

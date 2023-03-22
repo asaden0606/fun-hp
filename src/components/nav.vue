@@ -67,7 +67,6 @@ const onClick = () => {
     margin-bottom: 70px;
     display: flex;
 
-
     .item {
       cursor: pointer;
       transition: 1s;
@@ -97,16 +96,14 @@ const onClick = () => {
         }
       }
     }
+  }
 
-    .opener {
-      display: hidden;
-    }
+  .opener {
+    display: none;
+  }
 
-    @include pc($pch) {
-      display: flex;
-    }
-
-    @include sp($sph) {
+  @include sp($sph) {
+    .menuItems {
       width: 60vw;
       height: 90vh;
       left: initial;
@@ -115,16 +112,18 @@ const onClick = () => {
       align-items: flex-start;
       overflow-y: visible;
       margin-bottom: 0;
-      display: none;
+      transition: transform 0.5s;
+      transform: scale(0, 1);
+      transform-origin: top right;
 
       &.show {
-        display: block;
-      }
-
-      .opener {
-        display: block;
+        transform: scale(1, 1)
       }
     }
+
+    .opener {
+      display: block;
+    }    
   }
 }
 </style>
