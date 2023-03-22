@@ -26,13 +26,18 @@
   </div>
 </template>      
 <style lang="scss" scoped>
+@import "@/css/share";
+
 .root {
   padding: 1em;
 
   .companyTable {
     border: none;
-    width: 800px;
     margin: auto;
+    width: 100%;
+    max-width: 800px;
+
+    table-layout: fixed;
     margin-bottom: 3em;
     padding-left: 1em;
     padding-right: 1em;
@@ -46,20 +51,19 @@
       border: none;
       background: none;
       text-align: left;
+      word-wrap: break-word;
     }
 
     th {
       font-size: 1.5rem;
       font-weight: bold;
-      width: 20%;
+      width: 30%;
+      min-width: 100px;
     }
 
     td {
+      width: auto;
       font-size: 1.5rem;
-
-      &:nth-child(2) {
-        width: 20%;
-      }
     }
   }
 
@@ -67,6 +71,18 @@
     width: 95%;
     height: 400px;
     border: none;
+  }
+
+  @include sp($sph) {
+    .companyTable {
+      th {
+        font-size: 1rem;
+      }
+
+      td {
+        font-size: 1rem;
+      }
+    }
   }
 }
 </style>

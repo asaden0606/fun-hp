@@ -240,13 +240,13 @@ textarea:focus {
 }
 
 [data-scroll="in"] {
-  opacity: 1;
+  display: block;
   -webkit-transform: translate(0, 0) !important;
   transform: translate(0, 0) !important;
 }
 
 [data-scroll="out"] {
-  opacity: 0;
+  display: none;
 }
 
 .-js-fade-up {
