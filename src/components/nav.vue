@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import NavOpener from './NavOpener.vue';
+
 interface MenuItem {
   icon: string;
   text: string;
@@ -30,13 +32,14 @@ const MENUS: MenuItem[] = [
       </div>
       <div class="text">{{ menu.text }}</div>
     </a>
+
+    <NavOpener></NavOpener>
   </div>
 </template>
 <style lang="scss" scoped>
 @import "@/css/share";
 
 .root {
-  cursor: pointer;
   display: flex;
   background-color: #eeffeecb;
   align-items: center;
@@ -48,6 +51,7 @@ const MENUS: MenuItem[] = [
   height: 70px;
 
   .item {
+    cursor: pointer;
     transition: 1s;
     -webkit-transition: 1s;
     display: flex;
