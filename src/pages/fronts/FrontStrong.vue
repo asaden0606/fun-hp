@@ -20,7 +20,6 @@
       <img src="@/assets/img/front/bland/typescript.svg" width="100px">
       <img src="@/assets/img/front/bland/webpack-icon.svg" width="100px" />
     </div>
-
     <p>また、Web以外にも扱える言語として、下記があります。</p>
     <ul>
       <li>C/C++</li>
@@ -34,6 +33,7 @@
       <li>VBA</li>
     </ul>
 
+  <!--
     <div class="-js-fade-right" data-scroll="out">
       <img src="@/assets/img/front/bland/c.svg" width="100px" />
       <img src="@/assets/img/front/bland/c-2975.svg" width="100px" />
@@ -43,7 +43,8 @@
       <img src="@/assets/img/front/bland/php.svg" width="100px" />
       <img src="@/assets/img/front/bland/vb.svg" width="100px" />
       <img src="@/assets/img/front/bland/vbs.svg" width="100px" />
-    </div>
+                  </div>
+                  -->
     <h3 class="subtitle">Linuxが得意</h3>
     <p>
       前業務ではLinuxサーバーの構築も行っており、100台以上のインストール及び管理を任されておりました。
@@ -52,8 +53,8 @@
       また、小規模なサイト構築の経験も多々あります。
       趣味で自宅サーバーも作成しており、本サイトはその自宅サーバーにて運営して配信されております。
     </p>
-    <img src="@/assets/img/front/server.jpg" data-scroll="out" />
 
+    <img class="serverImg -js-fade-left" src="@/assets/img/front/server.jpg" data-scroll="out" width="400px" />
     <h3 class="subtitle">豊富な知識に裏付けされる、資格の数</h3>
     <p>
       私は実力を証明するためにも、積極的に資格を取得しております。
@@ -74,7 +75,13 @@
   </div>
 </template>
 <style lang='scss' scoped>
+@import "@/css/share.scss";
+
 .root {
   padding: 3em;
+
+  @include sp($sph) {
+    padding: 1em;
+  }
 }
 </style>

@@ -2,10 +2,13 @@
 </script>
 <template>
     <div class="root">
-        <h1 class="anime-title">地元鹿児島を愛して、帰郷。<br />鹿児島より最新の技術を発信していきます。</h1>
+        <h1 class="anime-title">地元鹿児島を愛して、帰郷</h1>
+        <h1 class="anime-title">鹿児島より最新の技術を発信していきます。</h1>
     </div>
 </template>
 <style lang="scss" scoped>
+@import "@/css/share.scss";
+
 .root {
     max-width: 600px;
     width: 100vw;
@@ -13,7 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: auto;
+
 
     .anime-title {
         opacity: 0;
@@ -26,6 +31,10 @@
             0 0.03em 0.03em #FFAB91,
             0 0.03em 0.03em #000,
             0 0.03em 0.03em #FBE9E7;
+
+        @include sp($sph) {
+            font-size: 1.3rem;
+        }
     }
 }
 </style>

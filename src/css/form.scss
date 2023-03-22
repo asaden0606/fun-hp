@@ -6,12 +6,16 @@ html {
   scroll-behavior: smooth;
 
   @include sp($sph) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
 body {
   margin: 0em;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1,

@@ -19,6 +19,7 @@
         自作のインジケータやEAも作成してます。
       </p>
       <img src="@/assets/img/past/mt4.png" class="-js-fade-left mt4" data-scroll="out" />
+
       <p>
         また、私は自作のシステムにより持ち株/為替を管理しております。
         以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
@@ -30,14 +31,22 @@
   </div>
 </template>
 <style lang='scss' scoped>
+@import "@/css/share.scss";
+
 .root {
   .addpadding {
     padding-left: 3em;
     padding-right: 3em;
 
+
+
     .mt4 {
-      width: 100vw;
-      max-width: 800px;
+      width: 800px;
+    }
+
+    @include sp($sph) {
+      padding-left: 1em;
+      padding-right: 1em;
     }
   }
 }
