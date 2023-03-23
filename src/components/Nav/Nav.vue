@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import NavOpener from './NavOpener.vue';
+import NavOpener from '../Nav/NavOpener.vue';
 
 interface MenuItem {
   icon: string;

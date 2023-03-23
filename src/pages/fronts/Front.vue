@@ -1,10 +1,10 @@
 <script lang='ts' setup>
-import FrontBg from "./fronts/FrontBg.vue";
-import FrontTitle from "./fronts/FrontTitle.vue";
-import FrontScroll from "./fronts/FrontScroll.vue";
-import FrontContact from './fronts/FrontContact.vue';
-import FrontPast from './fronts/FrontPast.vue';
-import FrontStrong from './fronts/FrontStrong.vue';
+import FrontBg from "./FrontBg.vue";
+import FrontTitle from "./FrontTitle.vue";
+import FrontScroll from "./FrontScroll.vue";
+import FrontCompany from './FrontCompany.vue';
+import FrontPast from './FrontPast.vue';
+import FrontStrong from './FrontStrong.vue';
 import ScrollOut from "scroll-out";
 import { onMounted } from 'vue';
 
@@ -66,7 +66,7 @@ onMounted(() => {
             <div class="white">
                 <FrontStrong />
                 <FrontPast />
-                <FrontContact />
+                <FrontCompany />
             </div>
         </div>
         <div class="bg">

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "/", component: () => import("@/pages/front.vue") },
+  { path: "/", component: () => import("@/pages/fronts/Front.vue") },
   ,
 ];
 
