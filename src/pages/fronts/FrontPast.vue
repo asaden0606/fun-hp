@@ -38,10 +38,9 @@
     padding-left: 3em;
     padding-right: 3em;
 
-
-
     .mt4 {
-      width: 800px;
+      max-width: 800px;
+      width: 100%;
     }
 
     @include sp($sph) {

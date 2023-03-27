@@ -5,7 +5,6 @@ import FrontScroll from "./FrontScroll.vue";
 import FrontCompany from './FrontCompany.vue';
 import FrontPast from './FrontPast.vue';
 import FrontStrong from './FrontStrong.vue';
-import ScrollOut from "scroll-out";
 import { onMounted } from 'vue';
 
 
