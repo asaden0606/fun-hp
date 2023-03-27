@@ -11,13 +11,13 @@
 
 .root {
     max-width: 600px;
-    width: 100vw;
-    height: calc(100vh - 80px);
+    width: 80vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: auto;
+    height: 80vh;
 
 
     .anime-title {
@@ -34,7 +34,7 @@
     }
 
     @include sp($sph) {
-        height: 100vh;
+        height: 80vh;
 
         .anime-title {
             font-size: 1.3rem;

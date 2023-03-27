@@ -85,7 +85,7 @@ const onClick = () => {
         img {
           width: 40px;
           height: 40px;
-          border-radius: 40px;
+          border-radius: 99px;
           background-color: $theme5;
         }
       }
@@ -106,7 +106,7 @@ const onClick = () => {
 
   @include sp($sph) {
     .menuItems {
-      width: 60vw;
+      width: 80vw;
       height: 90vh;
       left: initial;
       right: 0;
@@ -120,6 +120,19 @@ const onClick = () => {
 
       &.show {
         transform: scale(1, 1)
+      }
+
+      .item {
+        .icon {
+          img {
+            width: 60px;
+            height: 60px;
+          }
+        }
+
+        .text {
+          font-size: 1.5rem;
+        }
       }
     }
 

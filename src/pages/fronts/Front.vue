@@ -40,6 +40,7 @@ onMounted(() => {
 
     $('.anime-title').on('inview', function () {
         (<any>$(".anime-title")).textillate();
+        $(this).css("opacity", 1);
     });
 
     $('.maintitle').on('inview', function () {

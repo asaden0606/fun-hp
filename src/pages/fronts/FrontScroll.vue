@@ -18,9 +18,10 @@
         text-orientation: sideways;
         position: absolute;
         bottom: calc(20vh + 1em);
-        left: calc(50% - 1em);
+        left: calc(50%);
+        transform: translate(-70%, 0);
         color: white;
-        font-size: 2.4rem;
+        font-size: 1.5rem;
         z-index: 1;
     }
 
@@ -28,7 +29,7 @@
         margin: auto;
         bottom: 0em;
         width: 20px;
-        left: calc(50% - 3px);
+        left: calc(50% - 10px);
         overflow: hidden;
         background: none;
         position: absolute;
