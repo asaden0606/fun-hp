@@ -59,11 +59,19 @@
       font-weight: bold;
       width: 30%;
       min-width: 100px;
+
+      @include sp($sph) {
+        font-size: 1rem;
+      }
     }
 
     td {
       width: auto;
       font-size: 1.5rem;
+
+      @include sp($sph) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -71,18 +79,6 @@
     width: 95%;
     height: 400px;
     border: none;
-  }
-
-  @include sp($sph) {
-    .companyTable {
-      th {
-        font-size: 1rem;
-      }
-
-      td {
-        font-size: 1rem;
-      }
-    }
   }
 }
 </style>

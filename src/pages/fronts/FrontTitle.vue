@@ -19,7 +19,6 @@
     margin: auto;
     height: 80vh;
 
-
     .anime-title {
         opacity: 0;
         font-size: 2.5rem;
@@ -31,14 +30,14 @@
             0 0.03em 0.03em #FFAB91,
             0 0.03em 0.03em #000,
             0 0.03em 0.03em #FBE9E7;
+
+        @include sp($sph) {
+            font-size: 1.3rem;
+        }
     }
 
     @include sp($sph) {
         height: 80vh;
-
-        .anime-title {
-            font-size: 1.3rem;
-        }
     }
 }
 </style>

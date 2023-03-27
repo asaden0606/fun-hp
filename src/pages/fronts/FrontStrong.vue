@@ -16,18 +16,9 @@
       </ul>
       <div class="languageImgs -js-fade-left" data-scroll="out">
         <img class="languageImg" src="@/assets/img/front/bland/es-1.svg" />
-        <img
-          class="languageImg"
-          src="@/assets/img/front/bland/javascript-1.svg"
-        />
-        <img
-          class="languageImg"
-          src="@/assets/img/front/bland/typescript.svg"
-        />
-        <img
-          class="languageImg"
-          src="@/assets/img/front/bland/webpack-icon.svg"
-        />
+        <img class="languageImg" src="@/assets/img/front/bland/javascript-1.svg" />
+        <img class="languageImg" src="@/assets/img/front/bland/typescript.svg" />
+        <img class="languageImg" src="@/assets/img/front/bland/webpack-icon.svg" />
       </div>
       <p>また、Web以外にも扱える言語として、下記があります。</p>
       <ul>
@@ -43,22 +34,10 @@
       </ul>
       <div class="qualificationImgs -js-fade-right" data-scroll="out">
         <img class="qualificationImg" src="@/assets/img/front/bland/c.svg" />
-        <img
-          class="qualificationImg"
-          src="@/assets/img/front/bland/c-2975.svg"
-        />
-        <img
-          class="qualificationImg"
-          src="@/assets/img/front/bland/microsoft-net.svg"
-        />
-        <img
-          class="qualificationImg"
-          src="@/assets/img/front/bland/java-4.svg"
-        />
-        <img
-          class="qualificationImg"
-          src="@/assets/img/front/bland/python-4.svg"
-        />
+        <img class="qualificationImg" src="@/assets/img/front/bland/c-2975.svg" />
+        <img class="qualificationImg" src="@/assets/img/front/bland/microsoft-net.svg" />
+        <img class="qualificationImg" src="@/assets/img/front/bland/java-4.svg" />
+        <img class="qualificationImg" src="@/assets/img/front/bland/python-4.svg" />
         <img class="qualificationImg" src="@/assets/img/front/bland/php.svg" />
         <img class="qualificationImg" src="@/assets/img/front/bland/vb.svg" />
         <img class="qualificationImg" src="@/assets/img/front/bland/vbs.svg" />
@@ -73,11 +52,7 @@
         また、小規模なサイト構築の経験も多々あります。
         趣味で自宅サーバーも作成しており、本サイトはその自宅サーバーにて運営して配信されております。
       </p>
-      <img
-        class="serverImg -js-fade-left"
-        src="@/assets/img/front/server.jpg"
-        data-scroll="out"
-      />
+      <img class="serverImg -js-fade-left" src="@/assets/img/front/server.jpg" data-scroll="out" />
     </section>
     <section class="frontSection">
       <h3 class="subtitle">豊富な知識に裏付けされる、資格の数</h3>
@@ -121,7 +96,7 @@
       .languageImg {
         width: 100%;
         max-width: 100px;
-        margin-right: 0.5em;
+        margin: 0 0.5em 0.5em 0;
       }
     }
 
@@ -134,7 +109,7 @@
         width: 100%;
         height: 100px;
         max-width: 100px;
-        margin-right: 0.5em;
+        margin: 0 0.5em 0.5em 0;
       }
     }
 
