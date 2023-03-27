@@ -10,32 +10,16 @@ import { onMounted } from 'vue';
 
 
 onMounted(() => {
-    ScrollOut({
-        targets: ".-js-fade",
-        once: "true",
-        threshold: 0.5,
-        offsetY: 400
-    });
-    ScrollOut({
-        targets: ".-js-fade-up",
-        threshold: 0.5,
-        once: "true",
-    });
-    ScrollOut({
-        targets: ".-js-fade-down",
-        threshold: 0.5,
-        once: "true",
-    });
-    ScrollOut({
-        targets: ".-js-fade-left",
-        threshold: 0.5,
-        once: "true",
-    });
-    ScrollOut({
-        targets: ".-js-fade-right",
-        threshold: 0.5,
-        once: "true",
-    });
+
+    $('.-js-fade-right').on("inview", function () {
+        $(this).attr("data-scroll", "in");
+    })
+
+
+    $('.-js-fade-left').on("inview", function () {
+        console.log("data-scroll changed")
+        $(this).attr("data-scroll", "in");
+    })
 
 
     $('.anime-title').on('inview', function () {
