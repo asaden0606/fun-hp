@@ -55,6 +55,7 @@ const onClick = () => {
 
 
 .root {
+
   .menuItems {
     background-color: #eeffeecb;
     align-items: center;
@@ -66,6 +67,7 @@ const onClick = () => {
     height: 70px;
     margin-bottom: 70px;
     display: flex;
+    padding: 0 1em;
 
     .item {
       cursor: pointer;
@@ -76,13 +78,13 @@ const onClick = () => {
       padding-right: 2em;
 
       &:hover {
-        transform: scale(1.5);
+        transform: scale(1.3);
       }
 
       .icon {
         img {
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           border-radius: 40px;
           background-color: $theme5;
         }
@@ -123,7 +125,7 @@ const onClick = () => {
 
     .opener {
       display: block;
-    }    
+    }
   }
 }
 </style>
