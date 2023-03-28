@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "fun-chart": "^0.1.274",
+    "fun-chart": "^0.1.276",
     "jquery": "^3.6.1",
     "three": "^0.147.0",
     "vue": "^3.2.45",

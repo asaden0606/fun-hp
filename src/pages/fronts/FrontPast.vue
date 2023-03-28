@@ -1,4 +1,29 @@
 <script lang='ts' setup>
+import { computed, onMounted, ref, watchEffect } from 'vue';
+
+const width = ref(0);
+
+const chartWidth = computed(() => {
+  return Math.min(width.value - 50, 800);
+});
+
+const chartHeight = computed(() => {
+  return chartWidth.value * 1.4;
+});
+
+const calculateWindowWidth = () => {
+  width.value = window.innerWidth;
+}
+
+onMounted(() => {
+  window.addEventListener('resize', calculateWindowWidth);
+});
+
+watchEffect(() => {
+  calculateWindowWidth();
+});
+
+
 </script>
 <template>
   <div class="root" id="past">
@@ -24,10 +49,11 @@
         また、私は自作のシステムにより持ち株/為替を管理しております。
         以下は趣味で作成しました自作のシステムのサンプルプログラムの一端です。
       </p>
+      <div class="-js-fade-left" data-scroll="out">
+        <chart-component kind="price" code="201" span="w" :width="chartWidth" :height="chartHeight"></chart-component>
+      </div>
     </div>
-    <div class="-js-fade-left" data-scroll="out">
-      <chart-component kind="price" code="201" span="w"></chart-component>
-    </div>
+
   </div>
 </template>
 <style lang='scss' scoped>
