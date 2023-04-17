@@ -8,19 +8,20 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "fun-chart": "^0.1.276",
+    "fun-chart": "^0.1.296",
     "jquery": "^3.6.1",
     "three": "^0.147.0",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-final-modal": "^3.4.11"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.14",
     "@vue/cli-plugin-router": "~5.0.8",
     "@vue/cli-plugin-typescript": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "typescript": "~4.9.3",
-    "@types/jquery": "^3.5.14",
     "node-sass": "^8.0.0",
-    "sass-loader": "^13.2.0"
+    "sass-loader": "^13.2.0",
+    "typescript": "~4.9.3"
   }
 }

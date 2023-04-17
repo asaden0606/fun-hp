@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import NavComponent from "@/components/Nav/Nav.vue";
-import GameComponent from "@/components/Game.vue";
+
 </script>
 <template>
   <div id="app">
