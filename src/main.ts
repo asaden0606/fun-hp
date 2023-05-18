@@ -1,12 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import ChartComponent from 'fun-chart';
+import { install } from 'fun-chart';
 import "fun-chart/dist/fun-chart.css";
-import { vfmPlugin } from "vue-final-modal";
+import { createVfm } from 'vue-final-modal'
+const vfm = createVfm()
 
-
-
-createApp(App).use(router)
-    .use(vfmPlugin())
-    .component("chart-component", ChartComponent).mount('#app')
+createApp(App).use(vfm).use(router)
+    .use(install).mount('#app')
