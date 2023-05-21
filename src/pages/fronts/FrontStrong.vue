@@ -7,21 +7,11 @@
       <p>
         近年、プログラミング言語の進化は目覚ましのものがあり、その中で最も急激に進化しているのがWebのプログラミング言語でしょう。
         私はWebの言語の常に最新情報に目を配り、技術の対応を積極的に進めてます。
-        以下は私が扱えるWebの言語の例です。
+        以下は私が扱えるプログラミング言語の例です。
       </p>
       <ul>
-        <li>JavaScript(ES2018)</li>
-        <li>BABEL</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
-      </ul>
-      <div class="languageImgs -js-fade-left" data-scroll="out">
-        <img class="languageImg" src="@/assets/img/front/bland/es-1.svg" />
-        <img class="languageImg" src="@/assets/img/front/bland/javascript-1.svg" />
-        <img class="languageImg" src="@/assets/img/front/bland/typescript.svg" />
-        <img class="languageImg" src="@/assets/img/front/bland/webpack-icon.svg" />
-      </div>
-      <p>また、Web以外にも扱える言語として、下記があります。</p>
-      <ul>
         <li>C/C++</li>
         <li>C#</li>
         <li>Java</li>
@@ -44,15 +34,16 @@
       </div>
     </section>
     <section class="frontSection">
-      <h3 class="subtitle">Linuxが得意</h3>
+      <h3 class="subtitle">インフラ構築も得意</h3>
       <p>
         前業務ではLinuxサーバーの構築も行っており、100台以上のインストール及び管理を任されておりました。
-      </p>
-      <p>
         また、小規模なサイト構築の経験も多々あります。
         趣味で自宅サーバーも作成しており、本サイトはその自宅サーバーにて運営して配信されております。
       </p>
       <img class="serverImg -js-fade-left" src="@/assets/img/front/server.jpg" data-scroll="out" />
+      <p>
+        また、Linuxだけではなく、AWS/GCPでのインフラ構築も得意としております。
+      </p>
     </section>
     <section class="frontSection">
       <h3 class="subtitle">豊富な知識に裏付けされる、資格の数</h3>
