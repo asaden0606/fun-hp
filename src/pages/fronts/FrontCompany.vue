@@ -7,11 +7,15 @@
     <table class="companyTable">
       <tr>
         <th>会社名</th>
-        <td>朝日電気</td>
+        <td>有限会社朝日電気</td>
       </tr>
       <tr>
         <th>設立年月日</th>
         <td>2004年 6月</td>
+      </tr>
+      <tr>
+        <th>会社法人番号</th>
+        <td>3400-02-027197</td>
       </tr>
       <tr>
         <th>メールアドレス</th>
@@ -19,7 +23,7 @@
       </tr>
     </table>
 
-
+  
     <iframe class="map"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.733732607353!2d130.82107209272715!3d31.393904658132314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353e9196106119a1%3A0xce9be300804ccdf1!2z44CSODkzLTAwNjUg6bm_5YWQ5bO255yM6bm_5bGL5biC6YO35LmL5Y6f55S677yR77yS77yQ77yS77yV4oiS77yR!5e0!3m2!1sja!2sjp!4v1679291400897!5m2!1sja!2sjp"
       loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

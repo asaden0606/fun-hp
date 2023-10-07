@@ -8,12 +8,11 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "fun-chart": "^0.1.314",
     "jquery": "^3.7.0",
     "three": "^0.152.2",
     "vue": "^3.3.2",
-    "vue-router": "^4.2.0",
-    "vue-final-modal": "^4.4.2"
+    "vue-final-modal": "^4.4.2",
+    "vue-router": "^4.2.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.16",

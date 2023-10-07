@@ -110,7 +110,7 @@ label.checkbox {
     border-radius: 4px;
   }
 
-  input:checked + span::after {
+  input:checked+span::after {
     content: "";
     display: block;
     position: absolute;
@@ -150,7 +150,7 @@ label.radio {
     border-radius: 50%;
   }
 
-  input:checked + span::after {
+  input:checked+span::after {
     content: "";
     display: block;
     position: absolute;
@@ -245,8 +245,7 @@ textarea:focus {
   transform: translate(0, 0) !important;
 }
 
-[data-scroll="out"] {
-}
+[data-scroll="out"] {}
 
 .-js-fade-up {
   -webkit-transform: translateY(30px);
@@ -266,4 +265,14 @@ textarea:focus {
 .-js-fade-right {
   -webkit-transform: translateX(-30px);
   transform: translateX(-30px);
+}
+
+
+#fc2_footer {
+  z-index: 100;
+  position: relative;
+
+  a {
+    color: white;
+  }
 }

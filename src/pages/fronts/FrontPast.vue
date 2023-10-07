@@ -49,8 +49,9 @@ watchEffect(() => {
         また、私は自作のシステムにより持ち株/為替を管理しております。
         以下は趣味で作成しました自作システムの一端です。
       </p>
-
+<!--
       <ChartComponent kind="basic" code="201" span="w" :width="chartWidth" :height="chartHeight" />
+      -->
     </div>
   </div>
 </template>
